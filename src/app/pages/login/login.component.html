@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="login-dark" style="height: 695px;">
+    <form>
+      <h2 class="sr-only">SSIOC</h2>
+      <div class="col-12 label-nombre">
+        Sistema de Supervisión de la
+        Instalación y Operación de CATD
+      </div>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon2" [(ngModel)]="register.user" name="user">
+        <span class="input-group-text" id="basic-addon2">@ine.mx</span>
+      </div>
+      <div class="input-group mb-3">
+        <input type="password" class="form-control" placeholder="Contraseña" aria-label="Contraseña" aria-describedby="basic-addon1" [(ngModel)]="register.password" name="password">
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3" (click)="loginUser()">Ingresar</button>
+      </div>
+    </form>
+    <app-loading *ngIf="loadingStatus === 'loading'" [statusDetail]="loadingStatus"></app-loading>
+  </div>
+</div>
