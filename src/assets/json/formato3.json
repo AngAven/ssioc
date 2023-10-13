@@ -1,0 +1,105 @@
+{
+  "descripcionFormato":"Constancia de participación individual sobre el seguimiento y supervisión a los simulacros y la operación  del PREP para el Proceso Electoral Federal Extraordinario del estado de Nayarit 2021",
+  "nombreFormato":"Formato 3",
+  "mesFormato":"Simulacro 1",
+  "formato3": [{
+     "sentencia": "Nombre:",
+     "nombre": "pregunta1",
+     "tipo": 5,
+     "req":"true"
+   }, {
+     "sentencia": "Cargo:",
+     "nombre": "pregunta2",
+     "tipo": 4,
+     "resp": ["Presidente del Consejo Local","Secretario del Consejo Local","Consejero Electoral Local","VCEyEC Local",
+          "VOE Local","VRFE Local","Presidente del Consejo Distrital ","Secretario del Consejo Distrital","Consejero Electoral Distrital",
+          "VCEyEC Distrital","VOE Distrital","VRFE Distrital","Representante PAN","Suplente PAN","Representante PRI","Suplente PRI",
+          "Representante PRD","Suplente PRD","Representante PT","Suplente PT","Representante PVEM","Suplente PVEM","Representante MC",
+          "Suplente MC"," Representante RSP","Suplente RSP","Representante Nueva Alianza","Suplente Nueva Alianza","Representante FSM",
+          "Suplente FSM","Representante Morena","Suplente Morena","Otro"],
+     "req":"true",
+     "respuestas":""
+   }, {
+    "titulo": "General",
+    "tituloClass": "General",
+    "sentencia": "Antes de iniciar las actividades programadas se contaba con los siguientes materiales:",
+    "nombre": "pregunta3",
+    "tipo": 6,
+    "resp": ["Material de identificación", "Actas de prueba", "Códigos QR de prueba", "Listado de casillas"],
+    "req":"false"
+  }, {
+    "titulo": "Acopio",
+    "tituloClass": "Acopio",
+    "sentencia": "¿El o la acopiador/a verificó que los datos de identificación de las Actas PREP sean legibles y estén completos?",
+    "nombre": "pregunta4",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req":"true"
+  }, {
+    "sentencia": "¿Se registró en el Acta PREP la fecha y hora de acopio con el Dispositivo de Sellado Automático?",
+    "nombre": "pregunta5",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req":"true"
+  }, {
+    "sentencia": "¿Las Actas PREP se distribuyeron para su digitalización en el orden de llegada al CATD?",
+    "nombre": "pregunta6",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req":"true"
+  }, {
+    "titulo":"Digitalización",
+    "tituloClass":"Digitalizacion",
+    "sentencia": "¿El o la digitalizador/a pegó el Código QR en el apartado indicado del Acta PREP?",
+    "nombre": "pregunta7",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req":"true"
+  }, {
+    "sentencia": "¿El o la digitalizador/a revisó la calidad de la imagen del Acta PREP que fue enviada al Monitor de Captura de Actas Digitalizadas (MCAD)?",
+    "nombre": "pregunta8",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req":"true"
+  },{
+    "titulo":"Captura/Verificación",
+    "tituloClass":"Captura",
+    "sentencia": " ¿El o la capturista registró los datos asentados en la imagen del Acta PREP?",
+    "nombre": "pregunta9",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req":"true"
+  }, {
+    "titulo":"Publicación",
+    "tituloClass":"Publicacion",
+    "sentencia": "¿La publicación de los resultados preliminares comenzó a la hora establecida?",
+    "nombre": "pregunta10",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req":"true"
+  },  {
+    "titulo":"Cotejo",
+    "tituloClass":"Cotejo",
+    "sentencia": "¿Se corroboró que los datos publicados coincidieran con los datos de la imagen del acta publicada?",
+    "nombre": "pregunta11",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req":"true"
+  }, {
+    "titulo":"Empaquetado",
+    "tituloClass":"Empaquetado",
+    "sentencia": "¿Las Actas PREP se archivaron para su posterior entrega a la Presidencia del Consejo?",
+    "nombre": "pregunta12",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req":"true"
+  }, {
+    "titulo": "General",
+    "tituloClass": "General",
+    "sentencia": "Incidentes o comentarios. Reportar observaciones referentes a la ejecución del PTO.",
+    "nombre": "pregunta13",
+    "tipo": 2,
+    "req":"false",
+    "respuestas": ""
+  }]
+}

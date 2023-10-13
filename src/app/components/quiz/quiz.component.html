@@ -1,69 +1,188 @@
 <div class="container">
-
-
   <div class="row">
     <div class="col col-12">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a [routerLink]="['/home']">Inicio</a></li>
-          <li class="breadcrumb-item color-rosa-2 font-bold" aria-current="page">{{'titulo'}}</li>
+          <li class="breadcrumb-item"><a [routerLink]="['/dashboard']">Inicio</a></li>
+          <li class="breadcrumb-item color-rosa-2 font-bold" aria-current="page">{{quizResponse?.nombreFormato}}</li>
         </ol>
       </nav>
     </div>
   </div>
   <div class="row">
     <div class="col col-12 text-center">
-      <div class="tituloEncuesta">{{'formato'}}</div>
+      <div class="tituloEncuesta">{{quizResponse?.descripcionFormato}}</div>
     </div>
   </div>
   <div class="barraSeguimiento">
     <div class="row m-t-30">
       <div class="col col-4">
         <div class="tituloSeguimiento infoSeguimiento align-middle">Entidad:</div>
-        <p>{{ 'estado' }}</p>
+        <p>{{ userData?.idEstado === undefined || userData?.idEstado ? 'Oficinas centrales' : userData.idEstado }}</p>
       </div>
       <div class="col col-4">
         <div class="tituloSeguimiento infoSeguimiento align-middle">Consejo:</div>
-        <p>{{ 'rol' }}</p>
+        <p>{{ (userData.idRol)?.includes('jl') ? 'Local' : 'Distrital' }}</p>
       </div>
       <div class="col col-4">
         <div class="tituloSeguimiento infoSeguimiento align-middle">Distrito Supervisado:</div>
-        <p>{{ 'distrito' }}</p>
+        <p>{{ userData.idDistrito }}</p>
       </div>
     </div>
-<!--    <div class="row  justify-content-md-center text-center m-t-50"  *ngIf="this.titulo.includes('1') || this.titulo.includes('2')">-->
-    <div class="row  justify-content-md-center text-center m-t-50" >
-<!--      <div class="col col-6" [ngClass]="this.encuesta.includes('Noviembre') ? 'formatoActivo':'formatoInactivo' ">-->
-      <div class="col col-6" >
+    <!--    <div class="row  justify-content-md-center text-center m-t-50"  *ngIf="this.titulo.includes('1') || this.titulo.includes('2')">-->
+    <div class="row  justify-content-md-center text-center m-t-50">
+      <!--      <div class="col col-6" [ngClass]="this.encuesta.includes('Noviembre') ? 'formatoActivo':'formatoInactivo' ">-->
+      <div class="col col-6">
         <div class="tituloSeguimiento">Noviembre</div>
       </div>
     </div>
-<!--    <div class="row text-center m-t-30" *ngIf="this.titulo.includes('3') || this.titulo.includes('4')">-->
-    <div class="row text-center m-t-30" >
-<!--      <div class="col col-4" [ngClass]="this.encuesta.includes('1') ? 'formatoActivo':'formatoInactivo' ">-->
+    <!--    <div class="row text-center m-t-30" *ngIf="this.titulo.includes('3') || this.titulo.includes('4')">-->
+    <div class="row text-center m-t-30">
+      <!--      <div class="col col-4" [ngClass]="this.encuesta.includes('1') ? 'formatoActivo':'formatoInactivo' ">-->
       <div class="col col-4">
         <div class="tituloSeguimiento">
           Simulacro 1
         </div>
       </div>
-<!--      <div class="col col-4" [ngClass]="this.encuesta.includes('2') ? 'formatoActivo':'formatoInactivo' ">-->
-      <div class="col col-4" >
+      <!--      <div class="col col-4" [ngClass]="this.encuesta.includes('2') ? 'formatoActivo':'formatoInactivo' ">-->
+      <div class="col col-4">
         <div class="tituloSeguimiento">
           Simulacro 2
         </div>
       </div>
-<!--      <div class="col col-3" [ngClass]="this.encuesta.includes('3') ? 'formatoActivo':'formatoInactivo' ">-->
-      <div class="col col-3" >
+      <!--      <div class="col col-3" [ngClass]="this.encuesta.includes('3') ? 'formatoActivo':'formatoInactivo' ">-->
+      <div class="col col-3">
         <div class="tituloSeguimiento">
           Simulacro 3
         </div>
       </div>
-<!--      <div class="col col-4" [ngClass]="this.encuesta.includes('Operacion') ? 'formatoActivo':'formatoInactivo' ">-->
-      <div class="col col-4" >
+      <!--      <div class="col col-4" [ngClass]="this.encuesta.includes('Operacion') ? 'formatoActivo':'formatoInactivo' ">-->
+      <div class="col col-4">
         <div class="tituloSeguimiento">
           Operación
         </div>
       </div>
     </div>
   </div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+
+  </div>
+  <form #boleta="ngForm" class="col col-12">
+    <div class="m-t-50" *ngFor="let item of this.preguntas; let i = index; let last = last;">
+      <div id="{{'destination'+i}}" class="section m-b-80 sectionActive">
+        <div class="">
+          <div class="row align-items-center">
+            <div class="col col-12 text-center m-b-30 p-t-5"
+                 [ngClass]="{'bannerTitulo': item.titulo != null || item.titulo != undefined }">
+              <h3>{{item.titulo}}</h3>
+            </div>
+          </div>
+          <h4><span *ngIf="item.req === 'true'" class="color-rosa-ine"></span> {{item.leyenda}} </h4>
+          <h4><span *ngIf="item.req === 'true'" class="color-rosa-ine">*</span> {{item.sentencia}} </h4>
+          <div class="m-t-50" *ngIf="item.tipo == 1">
+            <div class="col-auto" *ngFor="let answer of item.resp;let indexRespuesta = index">
+              <input type="radio" maxlength="100" class="btn btn-primary mb-2"
+                     [(ngModel)]="this.preguntas[i].respuestas" id="{{item.nombre}}respuesta{{indexRespuesta}}"
+                     name="{{item.nombre}}" [value]="answer" required="{{item.req}}"><span
+              class="m-l-15">{{answer}}</span>
+            </div>
+            <div class=""
+                 *ngIf="this.preguntas[i].condicional && preguntas[i].respuestas === this.preguntas[i].condicional[0].condicion">
+              <div class="m-t-50" *ngFor="let itemCondicional of item.condicional;let iCondicional = index;">
+                <h4><span *ngIf="itemCondicional.req == 'true'"
+                          class="color-rosa-ine">*</span> {{itemCondicional.sentencia}}</h4>
+
+                <div *ngIf="itemCondicional.tipo == 2">
+                                  <textarea name="name" class="largeInput" ValiduriDirective="true"
+                                            [attr.maxLength]="itemCondicional.maxLength ? itemCondicional.maxLength : 200"
+                                            [(ngModel)]="this.preguntas[i].condicional[iCondicional].respuestas"
+                                            id="{{itemCondicional.nombre}}" name="{{itemCondicional.nombre}}"
+                                            required="{{itemCondicional.req}}"></textarea>
+                  <small class="form-text text-muted">Longitud máxima del
+                    texto: {{itemCondicional.maxLength ? itemCondicional.maxLength : 200 }} caracteres.</small>
+                </div>
+
+                <div *ngIf="itemCondicional.tipo == 6">
+                  <h5 class="mas_de_una_opcion">Puedes elegir más de una opción.</h5><br>
+                  <div class="col col-12" *ngFor="let answer of this.preguntas[i].condicional[0].resp;let ind = index">
+                    <!--                    <input type="checkbox" class="btn btn-primary mb-2" (change)="onChangeConditional( i , ind, $event.target.checked  )" [value]="answer" required="{{item.req}}" id="{{item.nombre}}respuesta{{indexRespuesta}}" ><span class="m-l-15">{{(ind + 1 ) +" - "+ answer}}</span>-->
+                    <input type="checkbox" class="btn btn-primary mb-2" [value]="answer" required="{{item.req}}"
+                           id="{{item.nombre}}respuesta"><span class="m-l-15">{{(ind + 1) + " - " + answer}}</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="m-t-50" *ngIf="item.tipo == 2">
+            <div class="col col-12">
+              <textarea class="largeInput"
+                        [attr.maxLength]="this.preguntas[i].maxLength ? this.preguntas[i].maxLength : 200"
+                        ValiduriDirective="true" [(ngModel)]="this.preguntas[i].respuestas" name="{{item.nombre}}"
+                        id="{{item.nombre}}" required="{{item.req}}"></textarea>
+              <small class="form-text text-muted">Longitud máxima del
+                texto: {{this.preguntas[i].maxLength ? this.preguntas[i].maxLength : 200}} caracteres.</small>
+            </div>
+          </div>
+          <div class="m-t-50" *ngIf="item.tipo == 4">
+            <div class="col col-12">
+              <select class="select-hora col-form-label-sm" name="{{item.nombre}}" id="{{item.nombre}}">
+                <option [value]="undefined" disabled hidden>Selecciona un cargo</option>
+                <option [value]="cargo" *ngFor="let cargo of item.resp" name="">{{cargo}}</option>
+              </select>
+            </div>
+            <div class="col col-12 m-t-20" *ngIf="this.preguntas[i].respuestas == 'Otro'">
+              <p>Captura el cargo:</p>
+              <input type="text" maxlength="100" ValiduriDirective="true" class="largeInput" name="{{item.nombre}}"
+                     id="{{item.nombre}}" required="{{item.req}}">
+              <small class="form-text text-muted">Longitud máxima del texto: 100 caracteres.</small>
+            </div>
+          </div>
+          <div class="m-t-50" *ngIf="item.tipo == 5">
+            <div class="col col-12">
+              <input type="text" maxlength="200" ValiduriDirective="true" class="largeInput"
+                     [(ngModel)]="this.preguntas[i].respuestas" name="{{item.nombre}}" id="{{item.nombre}}"
+                     required="{{item.req}}">
+              <small class="form-text text-muted">Longitud máxima del texto: 200 caracteres.</small>
+            </div>
+          </div>
+          <div class="m-t-50" *ngIf="item.tipo == 6">
+            <h5 class="mas_de_una_opcion">Puedes elegir más de una opción.</h5><br>
+            <div class="col col-12" *ngFor="let answer of item.resp;let ind = index">
+              <input type="checkbox" class="btn btn-primary mb-2" [value]="answer" required="{{item.req}}"
+                     name="{{item.nombre}}" id="{{item.nombre}}respuesta{{ind}}"><span class="m-l-15">{{answer}}</span>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="m-t-50" *ngIf="!last">
+            <div class="col col-6">
+                <button type="submit" class="btn btn-primary mb-2" (click)="nextQuestion(i+1)" autofocus="true"> Siguiente </button>
+            </div>
+        </div> -->
+      </div>
+    </div>
+
+    <div style="margin-bottom: 3%;">
+      <input class="" type="checkbox" name="verificador" id="verificador" value="" name="verificador"
+             required="true"><span class="check_verificacion"> &nbsp;He leído y verificado mis respuestas</span>
+    </div>
+
+  </form>
+
+  <div class="row  justify-content-center">
+
+    <div class="col-6">
+      <button type="submit" class="btn btn-primary mb-2" [disabled]="!boleta.valid " autofocus="false"> Enviar</button>
+    </div>
+
+    <div class="col-6">
+      <button class="btn btn-primary mb-2 btn-Inv" routerLink="/home"> Cancelar</button>
+    </div>
+
+  </div>
+
+
 </div>

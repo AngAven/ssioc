@@ -1,0 +1,168 @@
+{
+  "descripcionFormato":"Constancia que emite el Consejo Local (CL) sobre el seguimiento y supervisión a la instalación y habilitación de los Centros de Acopio y Transmisión de Datos (CATD).",
+  "nombreFormato":"Formato 2",
+  "mesFormato":"Noviembre",
+  "formato2b": [{
+    "titulo": "Personal",
+    "sentencia": "En los Consejos Distritales ¿Los Coordinadores y/o Supervisores ya se integraron al PREP?",
+    "nombre": "pregunta1",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true"
+  }, {
+    "sentencia": "En los Consejos Distritales ¿Los Coordinadores y/o Supervisores recibieron la capacitación PREP?",
+    "nombre": "pregunta2",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true"
+  }, {
+    "sentencia": "En los Consejos Distritales ¿Se efectuó la contratación de los Técnicos Informáticos?",
+    "nombre": "pregunta3",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true"
+  }, {
+    "sentencia": "En los Consejos Distritales ¿Los Técnicos Informáticos recibieron la capacitación PREP?",
+    "nombre": "pregunta4",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true"
+  }, {
+    "sentencia": "En los Consejos Distritales ¿Se efectuó el proceso de contratación del personal operativo?",
+    "nombre": "pregunta5",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true"
+  }, {
+    "titulo": "CATD",
+    "sentencia": "En los Consejos Distritales  ¿Ya se encuentran disponibles los espacios designados para la instalación de los CATD?",
+    "nombre": "pregunta6",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true",
+    "condicional": [{
+      "sentencia": "Especificar en qué Consejos Distritales no se encuentra disponible el espacio asignado para la operación del PREP  y porqué",
+      "nombre": "pregunta6.1",
+      "tipo": 2,
+      "req": "true",
+      "condicion": "No",
+      "maxLength":700
+      }]
+  }, {
+    "sentencia": "En los Consejos Distritales  ¿Se cuenta con el mobiliario (sillas/mesas) suficientes para la operación del PREP?",
+    "nombre": "pregunta7",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true",
+    "condicional": [{
+      "sentencia": "Especificar en qué Consejos Distritales no se cuenta con suficiente mobiliario (sillas / mesas)  para la operación del PREP  y por qué",
+      "nombre": "pregunta7.1",
+      "tipo": 2,
+      "req": "true",
+      "condicion": "No",
+      "maxLength":700
+      }]
+  }, {
+    "sentencia": "En los Consejos Distritales ¿ Se cuenta con toda la infraestructura de comunicación (nodos, teléfonos IP, cables de red y switch)?",
+    "nombre": "pregunta8",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true",
+    "condicional": [{
+      "sentencia": "Especificar en qué Consejos Distritales no se cuenta con toda la infraestructura de comunicación (nodos, teléfonos IP, cables de red y switch) para la operación del PREP (nodos, teléfonos IP, cables de red y switch) y por qué",
+      "nombre": "pregunta8.1",
+      "tipo": 2,
+      "req": "true",
+      "condicion": "No",
+      "maxLength":700
+      }]
+  }, {
+    "sentencia": "En los Consejos Distritales ¿Los equipos multifuncionales KYOCERA ECOSYS M4125idn se encuentran disponible para la operación del PREP?",
+    "nombre": "pregunta9",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true",
+    "condicional": [{
+      "sentencia": "Especificar en qué Consejos Distritales no se cuenta con equipos multifuncionales KYOCERA ECOSYS 4125idn  para la operación del PREP  y por qué",
+      "nombre": "pregunta9.1",
+      "tipo": 2,
+      "req": "true",
+      "condicion": "No",
+      "maxLength":700
+      }]
+  }, {
+    "sentencia": "En los Consejos Distritales ¿Los equipos multifuncionales KYOCERA ECOSYS M4125id están operando correctamente?",
+    "nombre": "pregunta10",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true",
+    "condicional": [{
+      "sentencia": "Especificar en qué Consejos Distritales no están operando correctamente los  equipos multifuncionales KYOCERA ECOSYS 4125idn y por qué",
+      "nombre": "pregunta10.1",
+      "tipo": 2,
+      "req": "true",
+      "condicion": "No",
+      "maxLength":700
+      }]
+  }, {
+    "sentencia": "En los Consejos Distritales ¿Los CATD cuentan con los materiales  de identificación, de cartonería, y papeleria, asi como actas de prueba y códigos QR de prueba?",
+    "nombre": "pregunta11",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true",
+    "condicional": [{
+      "sentencia": "Especificar en qué Consejos Distritales no cuentan con los materiales  de identificación, de cartonería, y papeleria, asi como actas de prueba y códigos QR de prueba y cuáles son los faltantes",
+      "nombre": "pregunta11.1",
+      "tipo": 2,
+      "req": "true",
+      "condicion": "No",
+      "maxLength":700
+      }]
+  }, {
+    "sentencia": "En los Consejos Distritales ¿Cuál de las siguientes actividades fue la más compleja para la habilitación del CATD?",
+    "nombre": "pregunta12",
+    "tipo": 1,
+    "resp": ["La incorporación del personal comisionado", "Reclutamiento del personal", "Configuración de equipos", "Asignación y habilitación del espacio", "Asignación de mobiliario", "Recepción de materiales"],
+    "req": "true"
+  }, {
+    "titulo": "Seguimiento",
+    "sentencia": "¿Se realizaron visitas para dar seguimientro a la instalación de los CATD?",
+    "nombre": "pregunta13",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true",
+    "condicional": [{
+      "sentencia": "¿Cuántas visitas se realizaron durante el mes y a qué Consejos Distritales?",
+      "nombre": "pregunta13.1",
+      "tipo": 2,
+      "req": "true",
+      "condicion": "Sí"
+      }]
+  }, {
+    "sentencia": "Señale qué medios se utilizaron para establecer contacto con los Consejos Distritales y dar seguimiento al proceso de instalación",
+    "nombre": "pregunta14",
+    "tipo": 6,
+    "resp": ["Contacto telefónico", "Correo electrónico", "Reuniones de trabajo", "Oficios, circulares y/o atentas notas"],
+    "req": "false"
+  }, {
+    "sentencia": "En las sesiones del Consejo Local celebradas durante el mes ¿Se enlistó como asunto del orden del día, o bien se mencionó como asunto general la habilitación de los CATD?",
+    "nombre": "pregunta15",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true",
+    "condicional": [{
+      "sentencia": "Describa el desarrollo del punto",
+      "nombre": "pregunta15.1",
+      "tipo": 2,
+      "req": "true",
+      "condicion": "Sí"
+      }]
+  }, {
+    "sentencia": "Incidentes, observaciones y comentarios a reportar sobre el seguimiento a la habilitación del CATD",
+    "nombre": "pregunta16",
+    "tipo": 2,
+    "validaciones": ["","",""],
+    "req": "false",
+    "respuestas": ""
+  }]
+}

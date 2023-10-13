@@ -1,0 +1,66 @@
+{
+  "descripcionFormato":"Constancia que emite el Consejo Local (CL) sobre el seguimiento y supervisión a la instalación y habilitación de los Centros de Acopio y Transmisión de Datos (CATD).",
+  "nombreFormato":"Formato 2",
+  "mesFormato":"Marzo",
+  "formato2a": [{
+    "titulo": "Seguimiento",
+    "sentencia": "En los Consejos Distritales ¿Se tienen identificados los espacios que se destinarán al CATD?",
+    "nombre": "pregunta1",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true",
+    "condicional": [{
+      "sentencia": "Especificar cuáles son los Consejos Distritales que no tienen identificados los espacios que destinarán a los CATD, así como los motivos por los que no se tienen identificados dichos espacios.",
+      "nombre": "pregunta1.1",
+      "tipo": 2,
+      "req": "true",
+      "condicion": "No",
+      "maxLength":700
+      }]
+  }, {
+    "sentencia": "En los Consejos Distritales ¿Se tiene identificado el mobiliario (sillas/mesas) que se proporcionará para la instalación del CATD?",
+    "nombre": "pregunta2",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true"
+  }, {
+    "sentencia": "En los Consejos Distritales ¿Se cuenta con el equipo (cómputo, multifuncional, dispositivos de sellado automático, verificador de red, verificador de polaridad)  disponible para la operación del PREP?",
+    "nombre": "pregunta3",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true"
+  },{
+    "sentencia": "En los Consejos Distritales ¿ Se ha dado seguimiento al estado en que se encuentra el equipo que se utilizará para la operación del PREP?",
+    "nombre": "pregunta4",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true",
+    "condicional": [{
+      "sentencia": "Especificar en qué Consejos Distritales se han detectado problemas con el equipo que se utilizará en la operación:",
+      "nombre": "pregunta4.1",
+      "tipo": 2,
+      "req": "true",
+      "condicion": "No",
+      "maxLength":700
+      }]
+  }, {
+    "sentencia": " En las sesiones del Consejo Local celebradas durante el mes que se reporta ¿Se enlistó como asunto del orden del día, o bien se mencionó como asunto general la habilitación de los CATD?",
+    "nombre": "pregunta5",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true",
+    "condicional": [{
+      "sentencia": "Describa el desarrollo del asunto",
+      "nombre": "pregunta5.1",
+      "tipo": 2,
+      "req": "true",
+      "condicion": "Sí"
+      }]
+  }, {
+    "sentencia": "Incidentes, observaciones y comentarios a reportar sobre el seguimiento a la habilitación del CATD",
+    "nombre": "pregunta6",
+    "tipo": 2,
+    "req":"false",
+    "respuestas": ""
+  }]
+}

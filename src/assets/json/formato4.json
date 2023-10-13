@@ -1,0 +1,184 @@
+{
+  "descripcionFormato":"Constancia que emite el Consejo Local sobre el seguimiento y supervisión a los simulacros y la operación del PREP para el Proceso Electoral Federal Extraordinario del estado de Nayarit 2021",
+  "nombreFormato":"Formato 4",
+  "mesFormato":"Marzo",
+  "formato4": [{
+    "titulo": "General",
+    "tituloClass": "General",
+    "sentencia": "En los CATD de su entidad antes de iniciar las actividades programadas ¿Se contaba con los materiales de identificación (Actas, Códigos QR y Listado de casillas) ?",
+    "nombre": "pregunta1",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true",
+    "condicional": [{
+      "sentencia": "Especificar en cuáles CATD de su entidad no se contó con los materiales referidos, cuáles fueron los faltantes y porqué.",
+      "nombre": "pregunta1.1",
+      "tipo": 2,
+      "req": "true",
+      "condicion": "No"
+      }]
+  }, {
+    "titulo": "Acopio",
+    "tituloClass": "Acopio",
+    "sentencia": "En los CATD de su entidad ¿Las y los acopiadores verificaron que los datos de identificación de las Actas PREP sean legibles y estén completos?",
+    "nombre": "pregunta2",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true",
+    "condicional": [{
+      "sentencia": "Especificar en cuáles CATD de su entidad, las y los acopiadores no verificaron que los datos de identificación de las Actas PREP fueran legibles y estuvieran completos.",
+      "nombre": "pregunta2.1",
+      "tipo": 2,
+      "req": "true",
+      "condicion": "No"
+      }]
+  } ,{
+    "sentencia": "En los CATD de su entidad ¿Se registró en las Actas PREP la fecha y hora de acopio con los Dispositivos de Sellado Automático?",
+    "nombre": "pregunta3",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true",
+    "condicional": [{
+      "sentencia": "Especificar en cuáles CATD de su entidad no se registró en las Actas PREP la fecha y hora de acopio con los Dispositivos de Sellado Automático.",
+      "nombre": "pregunta3.1",
+      "tipo": 2,
+      "req": "true",
+      "condicion": "No"
+      }]
+   }, {
+     "sentencia": "En los CATD de su entidad ¿Las Actas PREP se distribuyeron para su digitalización en el orden de llegada?",
+     "nombre": "pregunta4",
+     "tipo": 1,
+     "resp": ["Sí", "No"],
+     "req": "true",
+     "condicional": [{
+       "sentencia": "Especificar en cuáles CATD de su entidad las Actas PREP no se distribuyeron para su digitalización en el orden de llegada.",
+       "nombre": "pregunta4.1",
+       "tipo": 2,
+       "req": "true",
+      "condicion": "No"
+       }]
+  },{
+    "titulo":"Digitalización",
+    "tituloClass":"Digitalizacion",
+    "sentencia": "En los CATD de su entidad ¿Las y los digitalizadores pegaron el Código QR en el apartado indicado de las Actas PREP?",
+    "nombre": "pregunta5",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true",
+    "condicional": [{
+      "sentencia": "Especificar en cuáles CATD de su entidad las y los digitalizadores no pegaron el Código QR en el apartado indicado de las Actas PREP.",
+      "nombre": "pregunta5.1",
+      "tipo": 2,
+      "req": "true",
+     "condicion": "No"
+      }]
+  }, {
+    "sentencia": "En los CATD de su entidad ¿Las y los digitalizadores revisaron la calidad de las imágenes de las Actas PREP que fueron enviadas a los Monitores de Captura de Actas Digitalizadas (MCAD)?",
+    "nombre": "pregunta6",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true",
+    "condicional": [{
+      "sentencia": "Especificar en cuáles CATD de su entidad los digitalizadores no revisaron la calidad de las imágenes de las Actas PREP que fueron enviadas a los Monitores de Captura de Actas Digitalizadas (MCAD).",
+      "nombre": "pregunta6.1",
+      "tipo": 2,
+      "req": "true",
+      "condicion": "No"
+      }]
+  },{
+    "titulo":"Captura/Verificación",
+    "tituloClass":"Captura",
+    "sentencia":" En los CATD de su entidad ¿Las y los capturistas registraron los datos asentados en la imagen de las Actas PREP?",
+    "nombre": "pregunta7",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true",
+    "condicional": [{
+      "sentencia": "Especificar en cuáles CATD de su entidad las y los capturistas no registraron los datos asentados en la imagen de las Actas PREP.",
+      "nombre": "pregunta7.1",
+      "tipo": 2,
+      "req": "true",
+      "condicion": "No"
+      }]
+  }, {
+    "titulo":"Publicación",
+    "tituloClass":"Publicacion",
+    "sentencia":"En los CATD de su entidad ¿La publicación de los resultados preliminares comenzó a la hora estipulada?",
+    "nombre": "pregunta8",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true",
+    "condicional": [{
+      "sentencia": "Especificar en cuáles CATD de su entidad la publicación de los resultados preliminares no comenzó a la hora estipulada.",
+      "nombre": "pregunta8.1",
+      "tipo": 2,
+      "req": "true",
+      "condicion": "No"
+      }]
+  }, {
+    "titulo":"Cotejo",
+    "tituloClass":"Cotejo",
+    "sentencia":"En los CATD de su entidad ¿Se corroboró que los datos publicados coincidieran con los datos de la imagen de las actas publicadas?",
+    "nombre": "pregunta9",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true",
+    "condicional": [{
+      "sentencia": "Especificar en cuáles CATD de su entidad no se corroboró que los datos publicados coincidieran con los datos de la imagen de las actas publicadas.",
+      "nombre": "pregunta9.1",
+      "tipo": 2,
+      "req": "true",
+      "condicion": "No"
+      }]
+  }, {
+    "titulo":"Empaquetado",
+    "tituloClass":"Empaquetado",
+    "sentencia": "En los CATD de su entidad ¿Las actas PREP se archivaron para su posterior entrega a la Presidencia del Consejo?",
+    "nombre": "pregunta10",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true",
+    "condicional": [{
+      "sentencia": "Especificar en cuáles CATD de su entidad las Actas PREP no se archivaron para su posterior entrega a la Presidencia del Consejo.",
+      "nombre": "pregunta10.1",
+      "tipo": 2,
+      "req": "true",
+      "condicion": "No"
+      }]
+  }, {
+    "titulo": "General",
+    "sentencia": "En los CATD de su entidad ¿Se reportaron visitas de los medios de comunicación?",
+    "nombre": "pregunta11",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true",
+    "condicional": [{
+      "sentencia": "Especificar los distritos en que se reportaron visitas y los medios de comunicación.",
+      "nombre": "pregunta11.1",
+      "tipo": 2,
+      "req": "true",
+      "condicion": "Sí",
+      "maxLength":700
+      }]
+  }, {
+    "sentencia": "En las sesiones del Consejo celebradas durante el mes que se reporta ¿Se enlistó como asunto del orden del día, o bien se mencionó como asunto general la ejecución del Proceso Técnico Operativo en pruebas y simulacros?",
+    "nombre": "pregunta12",
+    "tipo": 1,
+    "resp": ["Sí", "No"],
+    "req": "true",
+    "condicional": [{
+      "sentencia": "¿Qué temas se abordaron?",
+      "nombre": "pregunta12.1",
+      "tipo": 2,
+      "req": "true",
+      "condicion": "Sí"
+      }]
+  } ,{
+    "sentencia": "Incidentes o comentarios. Reportar observaciones referentes a la ejecución del PTO en los CATD de su entidad.",
+    "nombre": "pregunta13",
+    "tipo": 2,
+    "req":"false",
+    "respuestas": ""
+  }]
+}

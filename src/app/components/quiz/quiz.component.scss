@@ -1,0 +1,96 @@
+.background-verificacion{
+  background-color: #dbdbdb;
+  padding-left: 10px;
+}
+
+.tituloEncuesta{
+  font-size: 28px;
+}
+
+.subtituloEncuestas{
+  font-size: 24px;
+}
+
+
+.largeInput{
+  width: 100%;
+}
+
+.sectionActive{
+  opacity: 1 !important;
+}
+
+.section{
+  opacity: 0.3;
+}
+
+.breadcrumb{
+  background-color: inherit;
+}
+
+.formatoActivo{
+  color: #D2047A;
+  border-bottom: solid 2px #D2047A;
+}
+
+.formatoInactivo{
+  opacity: 0.3;
+  border-bottom: solid 2px #000;
+}
+
+.inputLine{
+  height: 400px;
+}
+
+.mas_de_una_opcion{
+  color: #E048AF;
+}
+
+.check_verificacion{
+  font-size: 22px;
+}
+
+
+/* BARRA SEGUIMIENTO */
+.barraSeguimiento{}
+
+.barraSeguimiento .tituloSeguimiento{
+  font-size: 22px;
+}
+.bannerTitulo{
+  background: #E048AF;
+  color: #FFF;
+}
+
+/*-----------------------*/
+/*------RESPONSIVE------*/
+/*---------------------*/
+@media (max-width: 767px) {
+  .tituloEncuesta{
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .subtituloEncuestas{
+    font-size: 17px;
+    font-weight: bold;
+  }
+
+  /* BARRA SEGUIMIENTO */
+  .barraSeguimiento .tituloSeguimiento{
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .infoSeguimiento{
+    height: 40px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  /* BARRA SEGUIMIENTO */
+  .barraSeguimiento .tituloSeguimiento{
+    font-size: 18px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {}
+@media (min-width: 1200px) {}
