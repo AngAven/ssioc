@@ -1,5 +1,9 @@
 import {Component, Input} from '@angular/core';
+import { Router } from '@angular/router';
+
 import {AuthService} from "../../services/auth.service";
+import {StoreService} from "../../services/store.service";
+import {User} from "../../models/auth.model";
 
 @Component({
   selector: 'app-login',
@@ -15,17 +19,20 @@ export class LoginComponent {
   loadingStatus: 'init' | 'success' | 'loading' | 'error' = 'init'
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private storeService: StoreService,
+    private router: Router
   ) {}
 
   loginUser(){
-    console.log('register', this.register)
     this.loadingStatus = 'loading'
 
     this.authService.login(this.register.user, this.register.password)
-    .subscribe(response => {
+    .subscribe((response) => {
+      console.log('response | login-service =>', response)
       this.loadingStatus = 'success'
-      console.log('response =>', response)
+      this.storeService.storeUser(response)
+      this.router.navigateByUrl('dashboard')
     })
   }
 }

@@ -10,6 +10,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavComponent } from './components/nav/nav.component';
 import { LoginComponent } from './pages/login/login.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { QuizComponent } from './components/quiz/quiz.component';
+import { QuizzesComponent } from './components/quizzes/quizzes.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { LoadingComponent } from './components/loading/loading.component';
     HomeComponent,
     NavComponent,
     LoginComponent,
-    LoadingComponent
+    LoadingComponent,
+    DashboardComponent,
+    QuizComponent,
+    QuizzesComponent
   ],
   imports: [
     BrowserModule,

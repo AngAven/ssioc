@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {catchError, map, retry} from "rxjs/operators";
 
 import {environment} from '../../enviroments/enviroment'
+import {User} from "../models/auth.model";
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +20,16 @@ export class AuthService {
     headers = headers.set('username', user)
     headers = headers.set('password', password)
 
-    return this.http.post(this.apiUrl, '', {
+    return this.http.post<User>(this.apiUrl, '', {
       headers
     })
+    .pipe(
+      map(user => {
+        return {
+          ...user,
+          authority: user.authorities[0].authority
+        }
+      })
+    )
   }
 }
