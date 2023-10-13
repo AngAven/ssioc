@@ -12,14 +12,14 @@ const routes: Routes = [
   // },
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/login',
     pathMatch: 'full'
-  },{
-    path: 'home',
-    component: HomeComponent
   },{
     path: 'login',
     component: LoginComponent
+  },{
+    path: 'home',
+    component: HomeComponent
   },{
     path: 'dashboard',
     component: DashboardComponent

@@ -18,6 +18,7 @@ export interface User {
   accountNonLocked: boolean
   credentialsNonExpired: boolean
   authorities: Authority[]
+  idRol: string
 }
 
 export interface UserDTO extends Partial<User>{

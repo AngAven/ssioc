@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {catchError, map, retry} from "rxjs/operators";
+import {map} from "rxjs/operators";
 
 import {environment} from '../../enviroments/enviroment'
 import {User} from "../models/auth.model";
@@ -13,9 +13,10 @@ export class AuthService {
 
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+  }
 
-  login(user: string, password: string){
+  login(user: string, password: string) {
     let headers = new HttpHeaders()
     headers = headers.set('username', user)
     headers = headers.set('password', password)
@@ -23,13 +24,14 @@ export class AuthService {
     return this.http.post<User>(this.apiUrl, '', {
       headers
     })
-    .pipe(
-      map(user => {
-        return {
-          ...user,
-          authority: user.authorities[0].authority
-        }
-      })
-    )
+      .pipe(
+        map(user => {
+          return {
+            ...user,
+            authority: user.authorities[0].authority,
+            idRol: `consejo.${user.authorities[0].authority.split('.')[1].toLowerCase()}`
+          }
+        })
+      )
   }
 }
