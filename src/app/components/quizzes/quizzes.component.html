@@ -4,22 +4,26 @@
   <br>
 
   <div class="row justify-content-center text-center">
-    <div class="col-12 col-sm-6 m-b-20">
+    <div class="col-12 col-sm-6 m-b-20" [ngClass]="{'disabled': quizNumber !== 1}">
       <div class="borderBox p-20">
         <p>
           Constancia que emite el Consejo Distrital (CD) sobre el seguimiento y supervisión a la instalación y
           habilitación de los Centros de Acopio y Transmisión de Datos (CATD).
         </p>
-        <button type="submit" class="btn btn-primary" [disabled]="!(quizNumber === 1)"> Formato 1</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!(quizNumber === 1)" [routerLink]="['/quiz']"> Formato
+          1 {{ '|' + quizPeriod }}
+        </button>
       </div>
     </div>
-    <div class="col-12 col-sm-6 m-b-20 ml-auto">
+    <div class="col-12 col-sm-6 m-b-20 ml-auto" [ngClass]="{'disabled': quizNumber !== 2}">
       <div class="borderBox p-20">
         <p>
           Constancia que emite el Consejo Local (CL) sobre el seguimiento y supervisión a la instalación y habilitación
           de los Centros de Acopio y Transmisión de Datos (CATD).
         </p>
-        <button type="submit" class="btn btn-primary" [disabled]="!(quizNumber === 2)"> Formato 2</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!(quizNumber === 2)" [routerLink]="['/quiz']"> Formato
+          2 {{ '|' + quizPeriod }}
+        </button>
       </div>
     </div>
   </div>
@@ -28,22 +32,26 @@
   <br>
 
   <div class="row justify-content-center text-center">
-    <div class="col-12 col-sm-6 m-b-20">
+    <div class="col-12 col-sm-6 m-b-20" [ngClass]="{'disabled': quizNumber !== 3}">
       <div class="borderBox p-20">
         <p>
           Constancia de participación individual sobre el seguimiento y supervisión a los simulacros y la operación del
           PREP para el Proceso Electoral Federal Extraordinario del estado de Nayarit 2021
         </p>
-        <button type="submit" class="btn btn-primary" [disabled]="!(quizNumber === 3)"> Formato 3</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!(quizNumber === 3)" [routerLink]="['/quiz']"> Formato
+          3 {{ '|' + quizPeriod }}
+        </button>
       </div>
     </div>
-    <div class="col-12 col-sm-6 m-b-20 ml-auto">
+    <div class="col-12 col-sm-6 m-b-20 ml-auto" [ngClass]="{'disabled': quizNumber !== 4}">
       <div class="borderBox p-20">
         <p>
           Constancia que emite el Consejo Local sobre el seguimiento y supervisión a los simulacros y la operación del
           PREP para el Proceso Electoral Federal Extraordinario del estado de Nayarit 2021
         </p>
-        <button type="submit" class="btn btn-primary" [disabled]="!(quizNumber === 4)"> Formato 4</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!(quizNumber === 4)" [routerLink]="['/quiz']"> Formato
+          4 {{ '|' + quizPeriod }}
+        </button>
       </div>
     </div>
   </div>

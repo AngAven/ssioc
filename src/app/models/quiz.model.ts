@@ -9,4 +9,3 @@ export interface TypeQuiz{
 export interface TypeQuizDTO extends Partial<TypeQuiz>{
 
 }
-

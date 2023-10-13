@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
     })
 
     if (this.username != undefined && this.roleId != undefined) {
-      this.quizService.getMyQuizType(this.username, this.roleId)
+      this.quizService.getQuizType(this.username, this.roleId)
       .subscribe(data => {
         console.log('response typeQuiz => ', data)
         this.storeService.storeQuizType(data)

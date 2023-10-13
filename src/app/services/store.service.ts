@@ -16,6 +16,11 @@ export class StoreService {
   private myQuizType = new BehaviorSubject<TypeQuizDTO>({})
   myQuizType$ = this.myQuizType.asObservable()
 
+
+  private quiz: any = {}
+  private myQuiz = new BehaviorSubject<any>({})
+  quiz$ = this.myQuiz.asObservable()
+
   constructor() { }
 
   storeUser(user: User){
@@ -26,5 +31,10 @@ export class StoreService {
   storeQuizType(quizType: TypeQuiz){
     this.quizType = quizType
     this.myQuizType.next(this.quizType)
+  }
+
+  storeQuiz(quiz: any){
+    this.quiz = quiz
+    this.myQuiz.next(this.quiz)
   }
 }

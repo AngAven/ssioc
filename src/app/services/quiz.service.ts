@@ -14,22 +14,24 @@ export class QuizService {
   ) {
   }
 
-  getUserQuizzes(user: string, role: string) {
-    // const url = this.url + "/SSIOC-presentacion-1.0.0/views/consultaFormato?nombreUsuario=" + user + "&idRol=" + role;
-    // const headers = new Headers({"Content-Type": "application/x-www-form-urlencoded"});
-    // let options = new RequestOptions({headers: headers});
-    // return this.http.get(``, options)
-    //   .map(res => {
-    //     if (res.json() !== undefined) {
-    //       return res.json();
-    //     } else {
-    //       console.log(res);
-    //       return {'mensajeError': res.status};
-    //     }
-    //   });
+  getQuiz(quizName: string, quizPeriod?: string) {
+    let url = `${this.apiUrl}/views/dist/assets/json/${quizName}.json`
+    if(quizPeriod !== ''){
+      switch (quizPeriod) {
+        case 'Enero':
+          url = url =`${this.apiUrl}/views/dist/assets/json/${quizName}a.json`
+          break
+        case 'Marzo':
+          url = url =`${this.apiUrl}/views/dist/assets/json/${quizName}b.json`
+          break
+        default:
+          alert('no se encontro un formato')
+      }
+    }
+    return this.http.get(url)
   }
 
-  getMyQuizType(username: string, roleId: string) {
+  getQuizType(username: string, roleId: string) {
     const url = `${this.apiUrl}/views/consultaFormato?nombreUsuario=${username}&idRol=${roleId}`
 
     let headers = new HttpHeaders()

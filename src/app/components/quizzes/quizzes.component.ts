@@ -8,6 +8,7 @@ import {StoreService} from "../../services/store.service";
 })
 export class QuizzesComponent implements OnInit {
   quizNumber: number = 0
+  quizPeriod: string = ''
 
   constructor(
     private storeService: StoreService
@@ -16,10 +17,10 @@ export class QuizzesComponent implements OnInit {
 
   ngOnInit() {
     this.storeService.myQuizType$.subscribe(data => {
-      if (data.quiz_number) {
+      if (data.quiz_number && data.period) {
         this.quizNumber = data.quiz_number
+        this.quizPeriod = data?.period
       }
-
     })
   }
 }

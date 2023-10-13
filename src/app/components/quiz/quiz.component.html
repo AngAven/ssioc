@@ -1,9 +1,69 @@
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Encuesta n</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Nombre del formato</h6>
-    <p class="card-text">Constancia que emite el Consejo Distrital (CD) sobre el seguimiento y supervisión a la instalación y habilitación de los Centros de Acopio y Transmisión de Datos (CATD).</p>
-    <button type="button" class="btn btn-primary">Contestar</button>
-<!--    <a href="#" class="card-link">Another link</a>-->
+<div class="container">
+
+
+  <div class="row">
+    <div class="col col-12">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a [routerLink]="['/home']">Inicio</a></li>
+          <li class="breadcrumb-item color-rosa-2 font-bold" aria-current="page">{{'titulo'}}</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col-12 text-center">
+      <div class="tituloEncuesta">{{'formato'}}</div>
+    </div>
+  </div>
+  <div class="barraSeguimiento">
+    <div class="row m-t-30">
+      <div class="col col-4">
+        <div class="tituloSeguimiento infoSeguimiento align-middle">Entidad:</div>
+        <p>{{ 'estado' }}</p>
+      </div>
+      <div class="col col-4">
+        <div class="tituloSeguimiento infoSeguimiento align-middle">Consejo:</div>
+        <p>{{ 'rol' }}</p>
+      </div>
+      <div class="col col-4">
+        <div class="tituloSeguimiento infoSeguimiento align-middle">Distrito Supervisado:</div>
+        <p>{{ 'distrito' }}</p>
+      </div>
+    </div>
+<!--    <div class="row  justify-content-md-center text-center m-t-50"  *ngIf="this.titulo.includes('1') || this.titulo.includes('2')">-->
+    <div class="row  justify-content-md-center text-center m-t-50" >
+<!--      <div class="col col-6" [ngClass]="this.encuesta.includes('Noviembre') ? 'formatoActivo':'formatoInactivo' ">-->
+      <div class="col col-6" >
+        <div class="tituloSeguimiento">Noviembre</div>
+      </div>
+    </div>
+<!--    <div class="row text-center m-t-30" *ngIf="this.titulo.includes('3') || this.titulo.includes('4')">-->
+    <div class="row text-center m-t-30" >
+<!--      <div class="col col-4" [ngClass]="this.encuesta.includes('1') ? 'formatoActivo':'formatoInactivo' ">-->
+      <div class="col col-4">
+        <div class="tituloSeguimiento">
+          Simulacro 1
+        </div>
+      </div>
+<!--      <div class="col col-4" [ngClass]="this.encuesta.includes('2') ? 'formatoActivo':'formatoInactivo' ">-->
+      <div class="col col-4" >
+        <div class="tituloSeguimiento">
+          Simulacro 2
+        </div>
+      </div>
+<!--      <div class="col col-3" [ngClass]="this.encuesta.includes('3') ? 'formatoActivo':'formatoInactivo' ">-->
+      <div class="col col-3" >
+        <div class="tituloSeguimiento">
+          Simulacro 3
+        </div>
+      </div>
+<!--      <div class="col col-4" [ngClass]="this.encuesta.includes('Operacion') ? 'formatoActivo':'formatoInactivo' ">-->
+      <div class="col col-4" >
+        <div class="tituloSeguimiento">
+          Operación
+        </div>
+      </div>
+    </div>
   </div>
 </div>
