@@ -5,17 +5,18 @@ import {FormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './pages/home/home.component';
+import { HomeComponent } from './website/pages/home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NavComponent } from './components/nav/nav.component';
-import { LoginComponent } from './pages/login/login.component';
-import { LoadingComponent } from './components/loading/loading.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { QuizComponent } from './components/quiz/quiz.component';
-import { QuizzesComponent } from './components/quizzes/quizzes.component';
-import { SendMailComponent } from './components/send-mail/send-mail.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { NavComponent } from './website/components/nav/nav.component';
+import { LoginComponent } from './website/pages/login/login.component';
+import { LoadingComponent } from './website/components/loading/loading.component';
+import { DashboardComponent } from './website/pages/dashboard/dashboard.component';
+import { QuizComponent } from './website/components/quiz/quiz.component';
+import { QuizzesComponent } from './website/components/quizzes/quizzes.component';
+import { SendMailComponent } from './website/components/send-mail/send-mail.component';
+import { NotFoundComponent } from './website/pages/not-found/not-found.component';
+import { FooterComponent } from './website/components/footer/footer.component';
+import { LayoutComponent } from './website/components/layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FooterComponent } from './components/footer/footer.component';
     QuizzesComponent,
     SendMailComponent,
     NotFoundComponent,
-    FooterComponent
+    FooterComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,

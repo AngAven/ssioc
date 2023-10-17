@@ -1,9 +1,9 @@
 import {Component, Input} from '@angular/core';
 import {Router} from '@angular/router';
 
-import {AuthService} from "../../services/auth.service";
-import {StoreService} from "../../services/store.service";
-import {UserDTO} from "../../models/auth.model";
+import {AuthService} from "../../../services/auth.service";
+import {StoreService} from "../../../services/store.service";
+import {UserDTO} from "../../../models/auth.model";
 
 @Component({
   selector: 'app-login',
