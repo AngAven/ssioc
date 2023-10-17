@@ -5,12 +5,14 @@ import { CmsRoutingModule } from './cms-routing.module';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 import { GridComponent } from './pages/grid/grid.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AdminDashboardComponent,
     GridComponent,
-    LayoutComponent
+    LayoutComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,

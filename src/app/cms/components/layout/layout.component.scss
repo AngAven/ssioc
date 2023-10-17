@@ -1,37 +1,69 @@
-div {
-  display: grid;
-  height: 100vh;
-  grid-template-columns: 220px 1fr;
-  grid-template-rows: auto 1fr;
-  grid-template-areas:
-      "header header header"
-      "nav content content";
-  header {
-    grid-area: header;
-    background-color: #3E51B5;
-    color: white;
-    padding: 1em;
-    box-shadow: 1px 2px 4px 0 rgb(21 99 157 / 16%);
-    border-bottom: 1px solid rgba(21,99,157,0.16);
-  }
-  nav {
-    grid-area: nav;
-    border-right: 1px solid rgba(21,99,157,0.16);
-    background-color: #fff;
-    a {
-      margin: 0;
-      padding: 0;
-      padding: 1em;
-      cursor: pointer;
-      position: relative;
-      display: block;
-      text-decoration: none;
-      color: #000;
-    }
-  }
-  main {
-    grid-area: content;
-    background-color: #f3f8fb;
-    padding: 1em;
-  }
+body {
+  background-color:#eeeeee;
+  margin:0;
+  padding:0;
+}
+header {
+  position:fixed;
+  top:0;
+  width:100%;
+  background-color:#3367d6;
+}
+header nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  padding:0;
+}
+header nav ul li {
+  display:inline;
+}
+header nav ul li a {
+  display:inline-block;
+  color:#f7f7f7;
+  text-decoration:none;
+  vertical-align:sub;
+}
+header nav ul li.main_menu a {
+  position:relative;
+  transition:background-color .3s ease-in-out;
+}
+header nav ul li a:hover {
+  background-color:rgba(255,255,255,0);
+}
+header nav ul li.main_menu a:hover:after {
+  content:'';
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  padding:20px;
+  background-color:rgba(255,255,255,0.1);
+  border-radius:100%;
+}
+
+header nav ul li input {
+  width:300px;
+  max-width:100%;
+  background-color:rgba(255,255,255,0.1);
+  border:none;
+  padding:6px 12px;
+  box-sizing:border-box;
+  transition:background-color .3s ease-in-out;
+}
+header nav ul li input::placeholder {
+  color:#f7f7f7;
+}
+header nav ul li input:focus::placeholder{
+  color:#333;
+}
+header nav ul li input:focus {
+  color:#333;
+  background-color:#fff;
+}
+header .title_container {
+  color:#999;
+  background-color:#fff;
+  padding:12px 59px;
+  box-sizing:border-box;
+  box-shadow:0px 12px 20px rgba(0,0,0,.05)
 }
