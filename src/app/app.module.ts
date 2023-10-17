@@ -15,6 +15,7 @@ import { QuizComponent } from './components/quiz/quiz.component';
 import { QuizzesComponent } from './components/quizzes/quizzes.component';
 import { SendMailComponent } from './components/send-mail/send-mail.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     QuizComponent,
     QuizzesComponent,
     SendMailComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
