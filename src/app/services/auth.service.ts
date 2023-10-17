@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {map} from "rxjs/operators";
+import {HttpClient, HttpHeaders, HttpErrorResponse, HttpStatusCode} from '@angular/common/http';
+import {throwError} from 'rxjs';
+import {map, catchError, tap} from "rxjs/operators";
 
 import {environment} from '../../enviroments/enviroment'
-import {User} from "../models/auth.model";
+import {UserDTO} from "../models/auth.model";
 
 @Injectable({
   providedIn: 'root'
@@ -21,17 +22,32 @@ export class AuthService {
     headers = headers.set('username', user)
     headers = headers.set('password', password)
 
-    return this.http.post<User>(this.apiUrl, '', {
+    return this.http.post<UserDTO>(this.apiUrl, '', {
       headers
     })
       .pipe(
-        map(user => {
-          return {
-            ...user,
-            authority: user.authorities[0].authority,
-            idRol: `consejo.${user.authorities[0].authority.split('.')[1].toLowerCase()}`
+        catchError((error: HttpErrorResponse) => {
+          if (error.status === HttpStatusCode.NotImplemented) {
+            return throwError('No esta implementado el servicio');
           }
-        })
+          if (error.status === HttpStatusCode.NotFound) {
+            return throwError('El producto no existe');
+          }
+          if (error.status === HttpStatusCode.Unauthorized) {
+            return throwError('No estas permitido');
+          }
+          return throwError('Ups algo salio mal');
+        }),
+        map(user => {
+          if (user.authorities) {
+            return {
+              ...user,
+              authority: user.authorities[0].authority,
+              idRol: `consejo.${user.authorities[0].authority.split('.')[1].toLowerCase()}`
+            }
+          }
+          return user
+        }),
       )
   }
 }

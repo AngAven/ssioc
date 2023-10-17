@@ -7,14 +7,22 @@
         Instalación y Operación de CATD
       </div>
       <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon2" [(ngModel)]="register.user" name="user" value="claudia.olguin">
+        <input type="text" class="form-control" [ngClass]="{'is-invalid': loadingStatus === 'error'}" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon2" [(ngModel)]="register.user" name="user" >
         <span class="input-group-text" id="basic-addon2">@ine.mx</span>
       </div>
       <div class="input-group mb-3">
-        <input type="password" class="form-control" placeholder="Contraseña" aria-label="Contraseña" aria-describedby="basic-addon1" [(ngModel)]="register.password" name="password" value="password">
+        <input type="password" class="form-control" [ngClass]="{'is-invalid': loadingStatus === 'error'}" placeholder="Contraseña" aria-label="Contraseña" aria-describedby="basic-addon1" [(ngModel)]="register.password" name="password">
+      <div id="validationServerLogin" class="invalid-feedback">
+        {{errorResponse.Mensaje}}
+      </div>
       </div>
       <div class="col-auto">
-        <button type="submit" class="btn btn-primary mb-3" (click)="loginUser()">Ingresar</button>
+        <button *ngIf="loadingStatus !== 'loading'" type="submit" class="btn btn-primary" (click)="loginUser()">Ingresar</button>
+
+        <button *ngIf="loadingStatus === 'loading'" class="btn btn-primary" type="button" disabled>
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          <span class="visually-hidden"></span> Ingresar...
+        </button>
       </div>
     </form>
     <app-loading *ngIf="loadingStatus === 'loading'" [statusDetail]="loadingStatus"></app-loading>

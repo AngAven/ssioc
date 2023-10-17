@@ -23,7 +23,7 @@ export class StoreService {
 
   constructor() { }
 
-  storeUser(user: User){
+  storeUser(user: UserDTO){
     this.userData = user
     this.user.next(this.userData)
   }

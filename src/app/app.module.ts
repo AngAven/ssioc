@@ -13,6 +13,8 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import { QuizzesComponent } from './components/quizzes/quizzes.component';
+import { SendMailComponent } from './components/send-mail/send-mail.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { QuizzesComponent } from './components/quizzes/quizzes.component';
     LoadingComponent,
     DashboardComponent,
     QuizComponent,
-    QuizzesComponent
+    QuizzesComponent,
+    SendMailComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
