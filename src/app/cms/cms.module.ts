@@ -6,17 +6,19 @@ import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard
 import { GridComponent } from './pages/grid/grid.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
   declarations: [
     AdminDashboardComponent,
     GridComponent,
     LayoutComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     CommonModule,
-    CmsRoutingModule
+    CmsRoutingModule,
+    SharedModule
   ]
 })
 export class CmsModule { }
