@@ -11,6 +11,7 @@ import {UserDTO} from "../../../models/auth.model";
 })
 export class LayoutComponent implements OnInit {
     userData: UserDTO = {}
+    loadingStatus: string = ''
 
     constructor(
         private storeService: StoreService,
@@ -21,6 +22,11 @@ export class LayoutComponent implements OnInit {
     ngOnInit(): void {
         this.storeService.user$.subscribe(userDTO => {
             this.userData = userDTO
+        })
+
+        this.storeService.loadingStatus$.subscribe(data => {
+            console.log('statusLoading => ', data)
+            this.loadingStatus = data
         })
 
         if (!Object.keys(this.userData).length) {
