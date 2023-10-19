@@ -20,15 +20,22 @@ const routes: Routes = [
       {
         path: 'login',
         component: LoginComponent
-      }, {
+      },
+      {
         path: 'dashboard',
         component: DashboardComponent
-      }, {
+      },
+      {
         path: 'quiz',
         component: QuizComponent
-      }, {
+      },
+      {
         path: 'sendmail',
         component: SendMailComponent
+      },
+      {
+        path: 'dashboard',
+        component: DashboardComponent
       }
     ]
   },
