@@ -3,8 +3,8 @@ import {RouterModule, Routes} from '@angular/router';
 
 import {LoginComponent} from "./pages/login/login.component";
 import {DashboardComponent} from "./pages/dashboard/dashboard.component";
-import {QuizComponent} from "./components/quiz/quiz.component";
-import {SendMailComponent} from "./components/send-mail/send-mail.component";
+import {QuizComponent} from "../shared/components/quiz/quiz.component";
+import {SendMailComponent} from "../shared/components/send-mail/send-mail.component";
 import {LayoutComponent} from "./components/layout/layout.component";
 
 const routes: Routes = [
