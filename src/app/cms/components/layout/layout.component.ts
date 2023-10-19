@@ -1,10 +1,24 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+
+import {StoreService} from "../../../services/store.service";
 
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']
 })
-export class LayoutComponent {
+export class LayoutComponent implements OnInit{
+  loadingStatus: string = ''
 
+  constructor(
+    private storeService: StoreService
+  ) {
+  }
+
+  ngOnInit(): void {
+    this.storeService.loadingStatus$.subscribe(data => {
+      console.log('statusLoading => ', data)
+      this.loadingStatus = data
+    })
+  }
 }

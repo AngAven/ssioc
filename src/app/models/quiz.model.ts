@@ -1,4 +1,4 @@
-export interface TypeQuiz{
+export interface TypeQuiz {
   idPeriodo: number
   idTipoFormato: number
   nombreArchivo: string
@@ -6,11 +6,19 @@ export interface TypeQuiz{
   quiz_number: number
 }
 
-export interface TypeQuizDTO extends Partial<TypeQuiz>{
+export interface Quiz {
+  id?: number
+  titulo: string
+  pregunta: string
+  respuesta: string
+  pregunta_hija?: Quiz[]
+}
+
+export interface TypeQuizDTO extends Partial<TypeQuiz> {
 
 }
 
-export interface EmailQuiz{
+export interface EmailQuiz {
   formato_nombre: string
   formato_descripcion: string
   formato_periodo: string
@@ -19,13 +27,13 @@ export interface EmailQuiz{
   cuestionario: Quiz[]
 }
 
-export interface EmailQuizDTO extends Partial<EmailQuiz> {
+export interface SendEmailQuizDTO extends Partial<EmailQuiz> {
 
 }
 
-export interface Quiz{
-  titulo: string
-  pregunta: string
-  respuesta: string
-  pregunta_hija?: Quiz[]
+export interface RequestEmailQuiz {
+  "codigo": string
+  "mensaje": string
+  "destinatario": string
+  "asunto": string
 }

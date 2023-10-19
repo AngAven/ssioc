@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 import {EmailService} from "../../../services/email.service";
+import {StoreService} from "../../../services/store.service";
 
-import {EmailQuizDTO} from "../../../models/quiz.model";
+import {RequestEmailQuiz, SendEmailQuizDTO} from "../../../models/quiz.model";
 
 @Component({
   selector: 'app-send-mail',
@@ -12,7 +13,7 @@ import {EmailQuizDTO} from "../../../models/quiz.model";
 export class SendMailComponent {
 
   url_params = 'mes=Enero&pregunta1=No&pregunta2=No&pregunta3=No&pregunta4=No&pregunta5=No&pregunta6=No&tresNodos=No&telefonoIp=No&cablesDeRed=No&switch=Sí&pregunta8=No&pregunta9=No&materialDeIdentificacion=Sí&materialElectrico=No&cartoneria=No&papeleria=No&actasDePrueba=No&codigosQRDePrueba=No&pregunta11=La incorporación del personal comisionado&pregunta12=No&pregunta12a=&pregunta13=zxc&timestamp=01/01/2024 12:31:54&estado=Oficinas centrales, las chidas&junta=0&usuario=pepin.olguin.2&correo=angel.avendano@ine.mx&'
-  jsonQuiz: EmailQuizDTO = {
+  jsonQuiz: SendEmailQuizDTO = {
     "formato_nombre": "Suspendisse ornare consequat lectus.",
     "formato_descripcion": "Morbi quis tortor id nulla ultrices aliquet.",
     "formato_periodo": "Morbi vel lectus in quam fringilla rhoncus.",
@@ -35,41 +36,41 @@ export class SendMailComponent {
         "titulo": "Mauris ullamcorper purus sit amet nulla.",
         "pregunta": "Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor.?",
         "respuesta": "Vestibulum sed magna at nunc commodo placerat.",
-        "pregunta_hija": [
-
-        ]
+        "pregunta_hija": []
       },
       {
         "titulo": "Nulla tempus.",
         "pregunta": "Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy.?",
         "respuesta": "Pellentesque eget nunc.",
-        "pregunta_hija": [
-
-        ]
+        "pregunta_hija": []
       },
       {
         "titulo": "Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.",
         "pregunta": "Fusce consequat. Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa.?",
         "respuesta": "In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc.",
-        "pregunta_hija": [
-
-        ]
+        "pregunta_hija": []
       }
     ]
   }
-  jsonQuizResponse: any = {}
+  jsonQuizResponse: RequestEmailQuiz = {
+    codigo: '',
+    mensaje: '',
+    destinatario: '',
+    asunto: '',
+  }
 
   constructor(
-      private emailService: EmailService
+    private storeService: StoreService,
+    private emailService: EmailService,
   ) {
   }
 
-  sendMailJSON(){
+  sendMailJSON() {
+    this.storeService.storeLoadingStatus('loading')
     this.emailService.sendMail(this.jsonQuiz).subscribe(data => {
-      console.log('data => ', data )
+      console.log('data | response email quiz => ', data)
+      this.storeService.storeLoadingStatus('success')
       this.jsonQuizResponse = data
     })
-
-    console.log('jsonQuizResponse => ', this.jsonQuizResponse)
   }
 }

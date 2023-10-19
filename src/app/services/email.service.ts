@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 
 import {environment} from "../../enviroments/enviroment";
 
-import {EmailQuizDTO} from "../models/quiz.model";
+import {RequestEmailQuiz, SendEmailQuizDTO} from "../models/quiz.model";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class EmailService {
       private http: HttpClient
   ) { }
 
-  sendMail(dto: EmailQuizDTO){
-    return this.http.post<EmailQuizDTO>(this.apiUrl, dto)
+  sendMail(dto: SendEmailQuizDTO){
+    return this.http.post<RequestEmailQuiz>(this.apiUrl, dto)
   }
 }
