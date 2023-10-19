@@ -32,8 +32,8 @@ export interface SendEmailQuizDTO extends Partial<EmailQuiz> {
 }
 
 export interface RequestEmailQuiz {
-  "codigo": string
-  "mensaje": string
-  "destinatario": string
-  "asunto": string
+  codigo: number
+  mensaje: string
+  destinatario: string
+  asunto: string
 }

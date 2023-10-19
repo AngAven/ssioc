@@ -53,7 +53,7 @@ export class SendMailComponent {
     ]
   }
   jsonQuizResponse: RequestEmailQuiz = {
-    codigo: '',
+    codigo: 0,
     mensaje: '',
     destinatario: '',
     asunto: '',
@@ -69,8 +69,10 @@ export class SendMailComponent {
     this.storeService.storeLoadingStatus('loading')
     this.emailService.sendMail(this.jsonQuiz).subscribe(data => {
       console.log('data | response email quiz => ', data)
-      this.storeService.storeLoadingStatus('success')
-      this.jsonQuizResponse = data
+      if (data.codigo === 200){
+        this.storeService.storeLoadingStatus('success')
+        this.jsonQuizResponse = data
+      }
     })
   }
 }
