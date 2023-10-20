@@ -7,6 +7,7 @@ import { GridComponent } from './pages/grid/grid.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import {SharedModule} from "../shared/shared.module";
+import {ModalComponent} from "../modal/modal.component";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {SharedModule} from "../shared/shared.module";
   imports: [
     CommonModule,
     CmsRoutingModule,
-    SharedModule
+    SharedModule,
+    ModalComponent
   ]
 })
 export class CmsModule { }

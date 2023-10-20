@@ -14,11 +14,11 @@ export class SendMailComponent {
 
   url_params = 'mes=Enero&pregunta1=No&pregunta2=No&pregunta3=No&pregunta4=No&pregunta5=No&pregunta6=No&tresNodos=No&telefonoIp=No&cablesDeRed=No&switch=Sí&pregunta8=No&pregunta9=No&materialDeIdentificacion=Sí&materialElectrico=No&cartoneria=No&papeleria=No&actasDePrueba=No&codigosQRDePrueba=No&pregunta11=La incorporación del personal comisionado&pregunta12=No&pregunta12a=&pregunta13=zxc&timestamp=01/01/2024 12:31:54&estado=Oficinas centrales, las chidas&junta=0&usuario=pepin.olguin.2&correo=angel.avendano@ine.mx&'
   jsonQuiz: SendEmailQuizDTO = {
-    "formato_nombre": "Suspendisse ornare consequat lectus.",
-    "formato_descripcion": "Morbi quis tortor id nulla ultrices aliquet.",
+    "formato_nombre": "Formato 1",
+    "formato_descripcion": "Formato 1 descripción",
     "formato_periodo": "Morbi vel lectus in quam fringilla rhoncus.",
-    "usuario_nombre": "rcookman0",
-    "usuario_correo": "kstolle0@yahoo.com",
+    "usuario_nombre": "angel avendaño",
+    "usuario_correo": "angel.avendano@ine.mx",
     "cuestionario": [
       {
         "titulo": "Ut at dolor quis odio consequat varius.",
