@@ -1,3 +1,1 @@
-<div class="container mail-container">
-  <button type="button" class="btn btn-primary" (click)="sendAnsweredQuizToGoogleScript()">Enviar</button>
-</div>
+<button type="button" class="btn btn-primary mb-2" (click)="sendMail()" [disabled]="loadingStatus == 'loading'">Enviar</button>

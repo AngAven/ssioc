@@ -16,6 +16,10 @@
         {{errorResponse.Mensaje}}
       </div>
       </div>
+      <div id="validationCaptcha" class="captcha">
+        {{errorCaptcha}}
+      </div>
+      <div class="col-auto text-center g-recaptcha" data-sitekey="6LdtuZcUAAAAAB3uKODkzd-zIu9hIxxU-Icj_6bx"></div>
       <div class="col-auto">
         <button *ngIf="loadingStatus !== 'loading'" type="submit" class="btn btn-primary" (click)="loginUser()">Ingresar</button>
 

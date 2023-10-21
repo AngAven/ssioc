@@ -17,7 +17,6 @@ export class LayoutComponent implements OnInit{
 
   ngOnInit(): void {
     this.storeService.loadingStatus$.subscribe(data => {
-      console.log('statusLoading => ', data)
       this.loadingStatus = data
     })
   }

@@ -47,7 +47,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav menuSesion">
         <li class="nav-item usuarioMenu">
-<!--          {{this._encuestas.user['username']}}-->
+          <!--          {{this._encuestas.user['username']}}-->
         </li>
         <li class="nav-item">
                     <span class="sesionMenu">
@@ -71,15 +71,15 @@
         </div>
       </div>
       <div class="col-2 user text-right">
-<!--        {{this._encuestas.user['username']}}-->
+        {{this.username}}
       </div>
-<!--      <div class="col-2"-->
-<!--           [ngClass]="{'user rosaSesion': this._encuestas.user['username'] != null || this._encuestas.user['username'] != undefined  }"-->
-<!--           (click)="cerrarSesion()">-->
-<!--                <span *ngIf="this._encuestas.user['username'] != null || this._encuestas.user['username'] != undefined">-->
-<!--                    <i class="fas fa-times-circle"></i> Cerrar Sesión-->
-<!--                </span>-->
-<!--      </div>-->
+      <div class="col-2"
+           [ngClass]="{'user rosaSesion': this.username != null || this.username != undefined  }"
+           (click)="endSession()">
+                <span *ngIf="this.username != null || this.username != undefined">
+                    <i class="fas fa-times-circle"></i> Cerrar Sesión
+                </span>
+      </div>
     </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import {EmailService} from "../../../services/email.service";
 import {GoogleAppScriptService} from "../../../services/google-app-script.service";
@@ -11,7 +11,8 @@ import {FormResponseDTO, FormDTO, QuizParams} from "../../../models/quiz.model";
   templateUrl: './send-mail.component.html',
   styleUrls: ['./send-mail.component.scss']
 })
-export class SendMailComponent {
+export class SendMailComponent  implements OnInit{
+  loadingStatus = ''
 
   url_params = 'mes=Enero&pregunta1=No&pregunta2=No&pregunta3=No&pregunta4=No&pregunta5=No&pregunta6=No&tresNodos=No&telefonoIp=No&cablesDeRed=No&switch=Sí&pregunta8=No&pregunta9=No&materialDeIdentificacion=Sí&materialElectrico=No&cartoneria=No&papeleria=No&actasDePrueba=No&codigosQRDePrueba=No&pregunta11=La incorporación del personal comisionado&pregunta12=No&pregunta12a=&pregunta13=zxc&timestamp=01/01/2024 12:31:54&estado=Oficinas centrales, las chidas&junta=0&usuario=pepin.olguin.2&correo=angel.avendano@ine.mx&'
   answeredQuiz: FormDTO = {
@@ -19,7 +20,7 @@ export class SendMailComponent {
     "formato_descripcion": "Formato 1 descripción",
     "formato_periodo": "Marzo",
     "usuario_nombre": "angel avendaño",
-    "usuario_correo": "angel.avendano@ine.mx",
+    "usuario_correo": "ssioc@ine.mx",
     "cuestionario": [
       {
         "titulo": "Ut at dolor quis odio consequat varius.",
@@ -103,10 +104,21 @@ export class SendMailComponent {
   ) {
   }
 
+  ngOnInit(): void {
+    this.storeService.loadingStatus$.subscribe(data => {
+      this.loadingStatus = data
+    })
+  }
+
+
+  sendMail(){
+    this.sendMailToUserAnsweredQuiz()
+    this.sendAnsweredQuizToGoogleScript()
+  }
+
   sendMailToUserAnsweredQuiz(answeredQuiz: FormDTO = this.answeredQuiz) {
     this.storeService.storeLoadingStatus('loading')
     this.emailService.sendToUserAnsweredQuiz(answeredQuiz).subscribe(data => {
-      console.log('data | response email quiz => ', data)
       if (data.codigo === 200) {
         this.storeService.storeLoadingStatus('success')
         this.jsonQuizResponse = data
@@ -115,8 +127,10 @@ export class SendMailComponent {
   }
 
   sendAnsweredQuizToGoogleScript(answeredQuiz: FormDTO = this.answeredQuiz) {
+    this.storeService.storeLoadingStatus('loading')
     const stringParams: string = this.jsonToParams(answeredQuiz)
     this.googleService.newRecord(stringParams).subscribe(data => {
+      this.storeService.storeLoadingStatus('success')
       console.log(data)
     })
   }
