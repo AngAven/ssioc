@@ -18,6 +18,8 @@ export class LoginComponent implements OnInit {
     password: ''
   }
 
+  dataSitekey:string = '6LdtuZcUAAAAAB3uKODkzd-zIu9hIxxU-Icj_6bx'
+
   errorResponse: UserDTO = {}
   errorCaptcha: string = ''
   loadingStatus: string = ''

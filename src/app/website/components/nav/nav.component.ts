@@ -3,6 +3,8 @@ import {Router} from '@angular/router';
 
 import {StoreService} from "../../../services/store.service";
 
+import {environment} from "../../../../enviroments/enviroment";
+
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -10,6 +12,7 @@ import {StoreService} from "../../../services/store.service";
 })
 export class NavComponent implements OnInit {
   username: any = ''
+  navImage: string = environment.ASSETS_LOCATION + '/img/logosPREP.png'
 
   constructor(
     private storeService: StoreService,
