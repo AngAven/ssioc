@@ -1,26 +1,32 @@
 export interface User {
-    detalles: any
-    curp: string | null
-    idDistrito: string
-    nombreCompleto: string
-    idEstado: string
-    email: string
-    nombreCorto: string
-    nombreUsuario: string
-    secciones: string | null
-    primerLogin: string | null
-    fechaServidor: string | null
-    enabled: boolean
-    password: string
-    username: string
-    dn: string | null
-    accountNonExpired: boolean
-    accountNonLocked: boolean
-    credentialsNonExpired: boolean
-    authorities: Authority[]
-    idRol: string
-    status?: number
-    Mensaje?: string
+  detalles: any
+  curp: string | null
+  idDistrito: string
+  nombreCompleto: string
+  idEstado: string
+  email: string
+  nombreCorto: string
+  nombreUsuario: string
+  secciones: string | null
+  primerLogin: string | null
+  fechaServidor: string | null
+  enabled: boolean
+  password: string
+  username: string
+  dn: string | null
+  accountNonExpired: boolean
+  accountNonLocked: boolean
+  credentialsNonExpired: boolean
+  authorities: Authority[]
+  idRol: string
+  status: number
+  Mensaje: string
+  codigo: number
+  idUsuario: number
+  nombre: string
+  apellidoPaterno: string
+  apellidoMaterno: string
+  usuarioAdmin: boolean
 }
 
 export interface UserDTO extends Partial<User> {
@@ -28,10 +34,16 @@ export interface UserDTO extends Partial<User> {
 }
 
 export interface Authority {
-    authority: string
+  authority: string
 }
 
-export interface ErrorLoginResponse {
-    status: number
-    Mensaje: string
+export interface LoginAdminResponse {
+  codigo: number
+  mensaje: string
+  idUsuario: number
+  nombre: string
+  apellidoPaterno: string
+  apellidoMaterno: string
+  correo: string
+  usuarioAdmin: boolean
 }

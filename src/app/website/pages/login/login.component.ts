@@ -5,7 +5,7 @@ import {environment} from "../../../../enviroments/enviroment";
 
 import {AuthService} from "../../../services/auth.service";
 import {StoreService} from "../../../services/store.service";
-import {UserDTO} from "../../../models/auth.model";
+import {LoginAdminResponse, UserDTO} from "../../../models/auth.model";
 
 declare let $: any;
 
@@ -53,6 +53,14 @@ export class LoginComponent implements OnInit {
         this.authService.login(this.register.user, this.register.password)
           .subscribe((response) => {
             if (response.status) {
+              debugger
+              this.authService.adminLogin(this.register.user, this.register.password).subscribe(data => {
+                console.log(data)
+                if (data.codigo === 200){
+                  this.router.navigateByUrl('cms')
+                }
+              })
+
               this.storeService.storeLoadingStatus('error')
               this.errorResponse = response
             } else {
@@ -61,6 +69,8 @@ export class LoginComponent implements OnInit {
               this.router.navigateByUrl('dashboard')
             }
           })
+
+
       } else {
         this.storeService.storeLoadingStatus('init')
         this.errorCaptcha = 'No se contesto captcha'

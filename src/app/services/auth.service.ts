@@ -4,25 +4,29 @@ import {throwError} from 'rxjs';
 import {map, catchError, tap} from "rxjs/operators";
 
 import {environment} from '../../enviroments/enviroment'
-import {UserDTO} from "../models/auth.model";
+import {LoginAdminResponse, UserDTO} from "../models/auth.model";
+
+import {StoreService} from "./store.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = `${environment.API_URL}/login`;
+  private apiUrl = `${environment.API_URL}`;
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private storeService: StoreService
   ) {
   }
 
   login(user: string, password: string) {
-    let headers = new HttpHeaders()
+    let headers: HttpHeaders = new HttpHeaders()
+    const url = this.apiUrl + '/login'
     headers = headers.set('username', user)
     headers = headers.set('password', password)
 
-    return this.http.post<UserDTO>(this.apiUrl, '', {
+    return this.http.post<UserDTO>(url, '', {
       headers
     })
       .pipe(
@@ -49,5 +53,30 @@ export class AuthService {
           return user
         }),
       )
+  }
+
+  adminLogin(email: string, password: string) {
+    const emailuser: string = email.includes('@') ? email : email + '@ine.mx'
+    const url = this.apiUrl + '/views/loginAdmin'
+    let headers: HttpHeaders = new HttpHeaders()
+
+    headers = headers.set('correo', emailuser)
+    headers = headers.set('contrasenia', password)
+
+    return this.http.post<LoginAdminResponse>(url, {headers}).pipe(
+      map(data => {
+        if (data.codigo === 200) {
+          let userData: UserDTO = {}
+          userData = {
+            ...data,
+            Mensaje: data.mensaje,
+            email: data.correo
+          }
+          this.storeService.storeUser(userData)
+        }
+        return data
+      })
+    )
+
   }
 }
