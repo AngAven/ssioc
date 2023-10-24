@@ -7,21 +7,29 @@
         Instalación y Operación de CATD
       </div>
       <div class="input-group mb-3">
-        <input type="text" class="form-control" [ngClass]="{'is-invalid': loadingStatus === 'error'}" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon2" [(ngModel)]="register.user" name="user" >
+        <input type="text" class="form-control" [ngClass]="{'is-invalid': loadingStatus === 'error'}"
+               placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon2" [(ngModel)]="register.user"
+               name="user">
         <span class="input-group-text" id="basic-addon2">@ine.mx</span>
       </div>
       <div class="input-group mb-3">
-        <input type="password" class="form-control" [ngClass]="{'is-invalid': loadingStatus === 'error'}" placeholder="Contraseña" aria-label="Contraseña" aria-describedby="basic-addon1" [(ngModel)]="register.password" name="password">
-      <div id="validationServerLogin" class="invalid-feedback">
-        {{errorResponse.Mensaje}}
+        <input type="password" class="form-control" [ngClass]="{'is-invalid': loadingStatus === 'error'}"
+               placeholder="Contraseña" aria-label="Contraseña" aria-describedby="basic-addon1"
+               [(ngModel)]="register.password" name="password">
+        <div id="validationServerLogin" class="invalid-feedback">
+          {{errorResponse.Mensaje}}
+        </div>
       </div>
+
+      <div class="recaptcha">
+        <re-captcha (resolved)="resolved($event)" siteKey="{{sitekey}}"></re-captcha>
+        <div class="recaptcha-error-message">{{errorCaptcha}}</div>
       </div>
-      <div id="validationCaptcha" class="captcha">
-        {{errorCaptcha}}
-      </div>
-      <div class="col-auto text-center g-recaptcha" [attr.data-sitekey]="dataSitekey"></div>
+
       <div class="col-auto">
-        <button *ngIf="loadingStatus !== 'loading'" type="submit" class="btn btn-primary" (click)="loginUser()">Ingresar</button>
+        <button *ngIf="loadingStatus !== 'loading'" type="submit" class="btn btn-primary" (click)="loginUser()">
+          Ingresar
+        </button>
 
         <button *ngIf="loadingStatus === 'loading'" class="btn btn-primary" type="button" disabled>
           <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>

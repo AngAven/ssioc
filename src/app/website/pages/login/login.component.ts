@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
+import {environment} from "../../../../enviroments/enviroment";
+
 import {AuthService} from "../../../services/auth.service";
 import {StoreService} from "../../../services/store.service";
 import {UserDTO} from "../../../models/auth.model";
-
-declare let grecaptcha: any
 
 @Component({
   selector: 'app-login',
@@ -18,10 +18,11 @@ export class LoginComponent implements OnInit {
     password: ''
   }
 
-  dataSitekey:string = '6LdtuZcUAAAAAB3uKODkzd-zIu9hIxxU-Icj_6bx'
+  sitekey: string = environment.API_GOOGLE_RECAPTCHA
+  captchaResponse: string = ''
+  errorCaptcha: string = ''
 
   errorResponse: UserDTO = {}
-  errorCaptcha: string = ''
   loadingStatus: string = ''
 
   constructor(
@@ -35,15 +36,12 @@ export class LoginComponent implements OnInit {
     this.storeService.loadingStatus$.subscribe(data => {
       this.loadingStatus = data
     })
-
-    this.errorCaptcha = ''
   }
 
   loginUser() {
     this.storeService.storeLoadingStatus('loading')
-    let responseCaptcha = grecaptcha.getResponse()
 
-    if (responseCaptcha) {
+    if (this.captchaResponse) {
       this.authService.login(this.register.user, this.register.password)
         .subscribe((response) => {
           if (response.status) {
@@ -59,5 +57,9 @@ export class LoginComponent implements OnInit {
       this.storeService.storeLoadingStatus('init')
       this.errorCaptcha = 'No se contesto captcha'
     }
+  }
+
+  resolved(captchaResponse: string) {
+    this.captchaResponse = captchaResponse
   }
 }
