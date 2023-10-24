@@ -25,7 +25,6 @@ export class LayoutComponent implements OnInit {
         })
 
         this.storeService.loadingStatus$.subscribe(data => {
-            console.log('statusLoading => ', data)
             this.loadingStatus = data
         })
 

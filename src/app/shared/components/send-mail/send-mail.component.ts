@@ -131,7 +131,6 @@ export class SendMailComponent  implements OnInit{
     const stringParams: string = this.jsonToParams(answeredQuiz)
     this.googleService.newRecord(stringParams).subscribe(data => {
       this.storeService.storeLoadingStatus('success')
-      console.log(data)
     })
   }
 

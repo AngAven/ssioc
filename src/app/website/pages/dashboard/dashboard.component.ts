@@ -20,7 +20,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.storeService.user$.subscribe(userDTO => {
-      console.log('userDTO - dashboard', userDTO)
       this.username = userDTO.username
       this.roleId = userDTO.idRol
     })
@@ -28,7 +27,6 @@ export class DashboardComponent implements OnInit {
     if (this.username != undefined && this.roleId != undefined) {
       this.quizService.getQuizType(this.username, this.roleId)
       .subscribe(data => {
-        console.log('response typeQuiz => ', data)
         this.storeService.storeQuizType(data)
       })
     }

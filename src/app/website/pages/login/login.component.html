@@ -7,18 +7,25 @@
         Instalación y Operación de CATD
       </div>
       <div class="input-group mb-3">
-        <input type="text" class="form-control" [ngClass]="{'is-invalid': loadingStatus === 'error'}"
+        <input type="email" maxlength="40" class="form-control" [ngClass]="{'is-invalid': loadingStatus === 'error'}"
                placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon2" [(ngModel)]="register.user"
-               name="user">
+               name="user" required>
         <span class="input-group-text" id="basic-addon2">@ine.mx</span>
       </div>
       <div class="input-group mb-3">
-        <input type="password" class="form-control" [ngClass]="{'is-invalid': loadingStatus === 'error'}"
+        <input type="{{passwordInputType}}" maxlength="40" class="form-control"
+               [ngClass]="{'is-invalid': loadingStatus === 'error'}"
                placeholder="Contraseña" aria-label="Contraseña" aria-describedby="basic-addon1"
-               [(ngModel)]="register.password" name="password">
+               [(ngModel)]="register.password" name="password" id="password" required>
+        <button type="button" class="btn btn-primary btn-eye" id="show" (click)="changePasswordAttribute()">
+          <i class="bi bi-eye"></i>
+        </button>
         <div id="validationServerLogin" class="invalid-feedback">
           {{errorResponse.Mensaje}}
         </div>
+      </div>
+      <div class="error">
+        {{errorValidateField}}
       </div>
 
       <div class="recaptcha">
