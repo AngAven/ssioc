@@ -56,14 +56,19 @@ export class AuthService {
   }
 
   adminLogin(email: string, password: string) {
-    const emailuser: string = email.includes('@') ? email : email + '@ine.mx'
     const url = this.apiUrl + '/views/loginAdmin'
-    let headers: HttpHeaders = new HttpHeaders()
+    const data = {
+      nombreUsuario: email.includes('@') ? email : email + '@ine.mx',
+      contrasenia: password
+    }
 
-    headers = headers.set('correo', emailuser)
-    headers = headers.set('contrasenia', password)
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    }
 
-    return this.http.post<LoginAdminResponse>(url, {headers}).pipe(
+    return this.http.post<LoginAdminResponse>(url, data, httpOptions).pipe(
       map(data => {
         if (data.codigo === 200) {
           let userData: UserDTO = {}
