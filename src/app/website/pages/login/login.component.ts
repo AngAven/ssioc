@@ -5,7 +5,7 @@ import {environment} from "../../../../enviroments/enviroment";
 
 import {AuthService} from "../../../services/auth.service";
 import {StoreService} from "../../../services/store.service";
-import {LoginAdminResponse, UserDTO} from "../../../models/auth.model";
+import {UserDTO} from "../../../models/auth.model";
 
 declare let $: any;
 
@@ -53,13 +53,15 @@ export class LoginComponent implements OnInit {
         this.authService.login(this.register.user, this.register.password)
           .subscribe((response) => {
             if (response.status) {
+
               debugger
-              this.authService.adminLogin(this.register.user, this.register.password).subscribe(data => {
-                console.log(data)
-                if (data.codigo === 200){
-                  this.router.navigateByUrl('cms')
-                }
-              })
+              this.authService.adminLogin(this.register.user, this.register.password)
+                .subscribe(data => {
+                  if (data.codigo === 200) {
+                    this.storeService.storeLoadingStatus('init')
+                    this.router.navigateByUrl('cms')
+                  }
+                })
 
               this.storeService.storeLoadingStatus('error')
               this.errorResponse = response
@@ -98,7 +100,7 @@ export class LoginComponent implements OnInit {
     const whithoutSpace = /^\S+$/
     const oneDotInTheMiddle = /^[A-Za-z]*\.[A-Za-z]*$/
     const user = this.register.user
-    if (user){
+    if (user) {
       return whithoutSpace.test(this.register.user) && oneDotInTheMiddle.test(this.register.user)
     }
     return false
