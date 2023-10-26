@@ -50,29 +50,26 @@ export class LoginComponent implements OnInit {
 
     if (this.validateLoginFields()) {
       if (this.captchaResponse) {
-        this.authService.login(this.register.user, this.register.password)
-          .subscribe((response) => {
-            if (response.status) {
 
-              debugger
-              this.authService.adminLogin(this.register.user, this.register.password)
-                .subscribe(data => {
-                  if (data.codigo === 200) {
-                    this.storeService.storeLoadingStatus('init')
-                    this.router.navigateByUrl('cms')
+        this.authService.adminLogin(this.register.user, this.register.password)
+          .subscribe(data => {
+            if (data.codigo === 200) {
+              this.storeService.storeLoadingStatus('init')
+              this.router.navigateByUrl('cms')
+            } else {
+              this.authService.login(this.register.user, this.register.password)
+                .subscribe((response) => {
+                  if (response.status) {
+                    this.storeService.storeLoadingStatus('error')
+                    this.errorResponse = response
+                  } else {
+                    this.storeService.storeLoadingStatus('success')
+                    this.storeService.storeUser(response)
+                    this.router.navigateByUrl('dashboard')
                   }
                 })
-
-              this.storeService.storeLoadingStatus('error')
-              this.errorResponse = response
-            } else {
-              this.storeService.storeLoadingStatus('success')
-              this.storeService.storeUser(response)
-              this.router.navigateByUrl('dashboard')
             }
           })
-
-
       } else {
         this.storeService.storeLoadingStatus('init')
         this.errorCaptcha = 'No se contesto captcha'

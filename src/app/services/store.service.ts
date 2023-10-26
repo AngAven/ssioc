@@ -47,4 +47,8 @@ export class StoreService {
       this.loadingStatus = status
       this.loadingStatusBS.next(this.loadingStatus)
     }
+
+    isAdminUser(){
+      return !!this.userData.usuarioAdmin
+    }
 }
