@@ -1,50 +1,54 @@
-<div class="container">
-  <div class="login-dark" style="height: 695px;">
-    <form>
-      <h2 class="sr-only">SSIOC</h2>
-      <div class="col-12 label-nombre">
-        Sistema de Supervisión de la
-        Instalación y Operación de CATD
-      </div>
-      <div class="input-group mb-3">
-        <input type="email" maxlength="40" class="form-control" [ngClass]="{'is-invalid': loadingStatus === 'error'}"
-               placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon2" [(ngModel)]="register.user"
-               name="user" required>
-        <span class="input-group-text" id="basic-addon2">@ine.mx</span>
-      </div>
-      <div class="input-group mb-3">
-        <input type="{{passwordInputType}}" maxlength="40" class="form-control"
-               [ngClass]="{'is-invalid': loadingStatus === 'error'}"
-               placeholder="Contraseña" aria-label="Contraseña" aria-describedby="basic-addon1"
-               [(ngModel)]="register.password" name="password" id="password" required>
-        <button type="button" class="btn btn-primary btn-eye" id="show" (click)="changePasswordAttribute()">
-          <i *ngIf="!eyeIcon" class="bi bi-eye-slash color-white"></i>
-          <i *ngIf="eyeIcon" class="bi bi-eye color-white"></i>
-        </button>
-        <div id="validationServerLogin" class="invalid-feedback">
-          {{errorResponse.Mensaje}}
+<div class="container container-login">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <form>
+        <div class="center-text">
+          <h2 class="login-title">SSIOC</h2>
+          <p class="login-subtitle">
+            Sistema de Supervisión de la Instalación y Operación de CATD
+          </p>
         </div>
-      </div>
-      <div class="error">
-        {{errorValidateField}}
-      </div>
+        <div class="input-group mb-3">
+          <input type="email" maxlength="40" class="form-control" [ngClass]="{'is-invalid': loadingStatus === 'error'}"
+                 placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon2" [(ngModel)]="register.user"
+                 name="user" required>
+          <span class="input-group-text" id="basic-addon2">@ine.mx</span>
+        </div>
+        <div class="input-group mb-3">
+          <input type="{{passwordInputType}}" maxlength="40" class="form-control"
+                 [ngClass]="{'is-invalid': loadingStatus === 'error'}"
+                 placeholder="Contraseña" aria-label="Contraseña" aria-describedby="basic-addon1"
+                 [(ngModel)]="register.password" name="password" id="password" required>
+          <button type="button" class="btn btn-primary btn-eye" id="show" (click)="changePasswordAttribute()">
+            <i *ngIf="!eyeIcon" class="bi bi-eye-slash color-white"></i>
+            <i *ngIf="eyeIcon" class="bi bi-eye color-white"></i>
+          </button>
+          <div id="validationServerLogin" class="invalid-feedback">
+            {{errorResponse.Mensaje}}
+          </div>
+        </div>
+        <div class="error">
+          {{errorValidateField}}
+        </div>
 
-      <div class="recaptcha">
-        <re-captcha (resolved)="resolved($event)" siteKey="{{sitekey}}"></re-captcha>
-        <div class="recaptcha-error-message">{{errorCaptcha}}</div>
-      </div>
+        <div class="recaptcha center-text">
+          <re-captcha (resolved)="resolved($event)" siteKey="{{sitekey}}"></re-captcha>
+          <div class="recaptcha-error-message">{{errorCaptcha}}</div>
+        </div>
 
-      <div class="col-auto">
-        <button *ngIf="loadingStatus !== 'loading'" type="submit" class="btn btn-primary color-white" (click)="loginUser()">
-          Ingresar
-        </button>
+        <div class="center-text">
+          <button *ngIf="loadingStatus !== 'loading'" type="submit" class="btn btn-primary color-white"
+                  (click)="loginUser()">
+            Ingresar
+          </button>
 
-        <button *ngIf="loadingStatus === 'loading'" class="btn btn-primary color-white" type="button" disabled>
-          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-          <span class="visually-hidden"></span> Ingresar...
-        </button>
-      </div>
-    </form>
+          <button *ngIf="loadingStatus === 'loading'" class="btn btn-primary color-white" type="button" disabled>
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            <span class="visually-hidden"></span> Ingresar...
+          </button>
+        </div>
+      </form>
+    </div>
     <app-loading *ngIf="loadingStatus === 'loading'" [statusDetail]="loadingStatus"></app-loading>
   </div>
 </div>

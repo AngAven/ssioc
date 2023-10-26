@@ -1,32 +1,35 @@
 <div id="wrapper">
 
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <li class="sidebar-brand">
-                <a routerLink="admin">
-                    SSIOC Admin Panel
-                </a>
-            </li>
-            <li>
-                <a routerLink="grid">Dashboard</a>
-            </li>
-            <li>
-                <a routerLink="grid">Periodos</a>
-            </li>
-            <li>
-                <a routerLink="grid">Cuestionarios</a>
-            </li>
-            <li>
-                <a routerLink="grid">Secciones</a>
-            </li>
-            <li>
-                <a routerLink="sendmail">Enviar encuesta</a>
-            </li>
-            <li>
-        </ul>
-    </div>
-    <!-- /#sidebar-wrapper -->
+  <!-- Sidebar -->
+  <div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a routerLink="admin">
+          SSIOC Admin Panel
+        </a>
+      </li>
+      <li>
+        <a routerLink="grid">Dashboard</a>
+      </li>
+      <li>
+        <a routerLink="grid">Periodos</a>
+      </li>
+      <li>
+        <a routerLink="grid">Cuestionarios</a>
+      </li>
+      <li>
+        <a routerLink="grid">Secciones</a>
+      </li>
+      <li>
+        <a routerLink="sendmail">Enviar encuesta</a>
+      </li>
+      <li>
+        <a (click)="endSession()">Cerrar sesión</a>
+      </li>
+      <li>
+    </ul>
+  </div>
+  <!-- /#sidebar-wrapper -->
 
 
 </div>
