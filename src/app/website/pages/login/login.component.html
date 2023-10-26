@@ -18,7 +18,8 @@
                placeholder="Contraseña" aria-label="Contraseña" aria-describedby="basic-addon1"
                [(ngModel)]="register.password" name="password" id="password" required>
         <button type="button" class="btn btn-primary btn-eye" id="show" (click)="changePasswordAttribute()">
-          <i class="bi bi-eye"></i>
+          <i *ngIf="!eyeIcon" class="bi bi-eye-slash color-white"></i>
+          <i *ngIf="eyeIcon" class="bi bi-eye color-white"></i>
         </button>
         <div id="validationServerLogin" class="invalid-feedback">
           {{errorResponse.Mensaje}}
@@ -34,11 +35,11 @@
       </div>
 
       <div class="col-auto">
-        <button *ngIf="loadingStatus !== 'loading'" type="submit" class="btn btn-primary" (click)="loginUser()">
+        <button *ngIf="loadingStatus !== 'loading'" type="submit" class="btn btn-primary color-white" (click)="loginUser()">
           Ingresar
         </button>
 
-        <button *ngIf="loadingStatus === 'loading'" class="btn btn-primary" type="button" disabled>
+        <button *ngIf="loadingStatus === 'loading'" class="btn btn-primary color-white" type="button" disabled>
           <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
           <span class="visually-hidden"></span> Ingresar...
         </button>

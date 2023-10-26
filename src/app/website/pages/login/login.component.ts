@@ -31,6 +31,8 @@ export class LoginComponent implements OnInit {
 
   errorValidateField: string | null = null
 
+  eyeIcon: boolean = false
+
   constructor(
     private authService: AuthService,
     private storeService: StoreService,
@@ -89,8 +91,13 @@ export class LoginComponent implements OnInit {
     if (element) {
       if (element.getAttributeNames().find(item => item === 'type')) {
         this.passwordInputType = this.passwordInputType === 'password' ? 'text' : 'password'
+        this.toggleEyeIcon()
       }
     }
+  }
+
+  toggleEyeIcon() {
+    this.eyeIcon = !this.eyeIcon
   }
 
   validateLoginFields() {
