@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 
 import {StoreService} from "../../../services/store.service";
 
-import {environment} from "../../../../enviroments/enviroment";
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'app-nav',

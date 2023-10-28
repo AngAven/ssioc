@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 
-import {environment} from "../../enviroments/enviroment";
-import {FormDTO} from "../models/quiz.model";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class GoogleAppScriptService {
-  baseURL = environment.API_GOOGLE_SCRIPTS_FORMATO_1A_MARZO
+  baseURL = environment.API_GOOGLE_SCRIPTS
 
   constructor(
     private http: HttpClient

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 
-import {environment} from "../../enviroments/enviroment";
+import {environment} from "../../environments/environment";
 
 import {FormDTO, FormResponseDTO} from "../models/quiz.model";
 
@@ -9,13 +9,14 @@ import {FormDTO, FormResponseDTO} from "../models/quiz.model";
   providedIn: 'root'
 })
 export class EmailService {
-  private apiUrl = environment.API_URL_MAIL
+  private apiUrl = environment.API_SSIOC
 
   constructor(
       private http: HttpClient
   ) { }
 
   sendToUserAnsweredQuiz(dto: FormDTO){
-    return this.http.post<FormResponseDTO>(this.apiUrl, dto)
+    const url:string = this.apiUrl + '/views/enviaCorreo'
+    return this.http.post<FormResponseDTO>(url, dto)
   }
 }

@@ -1,13 +1,13 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import {environment} from "../../enviroments/enviroment";
+import {environment} from "../../environments/environment";
 import {map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuizService {
-  private apiUrl = `${environment.API_URL}`;
+  private apiUrl = `${environment.API_SSIOC}`;
 
   constructor(
     private http: HttpClient

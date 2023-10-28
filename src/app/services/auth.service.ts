@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders, HttpErrorResponse, HttpStatusCode} from '@angul
 import {throwError} from 'rxjs';
 import {map, catchError, tap} from "rxjs/operators";
 
-import {environment} from '../../enviroments/enviroment'
+import {environment} from '../../environments/environment'
 import {LoginAdminResponse, UserDTO} from "../models/auth.model";
 
 import {StoreService} from "./store.service";
@@ -12,7 +12,7 @@ import {StoreService} from "./store.service";
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = `${environment.API_URL}`;
+  private apiUrl = `${environment.API_SSIOC}`;
 
   constructor(
     private http: HttpClient,

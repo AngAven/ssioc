@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
-import {environment} from "../../../../enviroments/enviroment";
+import {environment} from "../../../../environments/environment";
 
 import {AuthService} from "../../../services/auth.service";
 import {StoreService} from "../../../services/store.service";
