@@ -43,12 +43,12 @@
         </div>
       </div>
       <div class="col-2 user text-right">
-        {{this.username}}
+        {{user.username}}
       </div>
-      <div class="col-2"
-           [ngClass]="{'user rosaSesion': this.username != null || this.username != undefined  }"
+      <div class="col-2 user rosaSesion"
+           *ngIf="user?.username"
            (click)="endSession()">
-                <span *ngIf="this.username != null || this.username != undefined">
+                <span>
                     <i class="fas fa-times-circle"></i> Cerrar Sesión
                 </span>
       </div>

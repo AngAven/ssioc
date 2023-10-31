@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {StoreService} from "../../../services/store.service";
 import {Router} from "@angular/router";
 
+import {AuthService} from "../../../services/auth.service";
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -10,13 +12,13 @@ import {Router} from "@angular/router";
 export class NavbarComponent {
 
   constructor(
-    private storeService: StoreService,
+    private authService: AuthService,
     private router: Router
   ) {
   }
 
   endSession() {
-    this.storeService.storeUser({})
+    this.authService.endSession()
     this.router.navigateByUrl('login')
   }
 }

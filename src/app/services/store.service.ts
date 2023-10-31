@@ -5,50 +5,63 @@ import {UserDTO} from "../models/auth.model";
 import {TypeQuiz, TypeQuizDTO} from "../models/quiz.model";
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 
 export class StoreService {
-    private userData: UserDTO = {}
-    private user = new BehaviorSubject<UserDTO>({})
-    user$ = this.user.asObservable()
+  private userData: UserDTO = {}
+  private user = new BehaviorSubject<UserDTO>({})
+  user$ = this.user.asObservable()
 
-    private quizType: TypeQuizDTO = {}
-    private myQuizType = new BehaviorSubject<TypeQuizDTO>({})
-    myQuizType$ = this.myQuizType.asObservable()
+  private quizType: TypeQuizDTO = {}
+  private myQuizType = new BehaviorSubject<TypeQuizDTO>({})
+  myQuizType$ = this.myQuizType.asObservable()
 
-    private quiz: any = {}
-    private myQuiz = new BehaviorSubject<any>({})
-    quiz$ = this.myQuiz.asObservable()
+  private quiz: any = {}
+  private myQuiz = new BehaviorSubject<any>({})
+  quiz$ = this.myQuiz.asObservable()
 
-    private loadingStatus: string = ''
-    private loadingStatusBS = new BehaviorSubject<string>('init')
-    loadingStatus$ = this.loadingStatusBS.asObservable()
+  private loadingStatus: string = ''
+  private loadingStatusBS = new BehaviorSubject<string>('init')
+  loadingStatus$ = this.loadingStatusBS.asObservable()
 
-    constructor() {
+  constructor() {
+  }
+
+  storeUser(user: UserDTO) {
+    this.userData = user
+    this.user.next(this.userData)
+  }
+
+  storeQuizType(quizType: TypeQuiz) {
+    this.quizType = quizType
+    this.myQuizType.next(this.quizType)
+  }
+
+  storeQuiz(quiz: any) {
+    this.quiz = quiz
+    this.myQuiz.next(this.quiz)
+  }
+
+  storeLoadingStatus(status: 'init' | 'success' | 'loading' | 'error') {
+    this.loadingStatus = status
+    this.loadingStatusBS.next(this.loadingStatus)
+  }
+
+  isAdminUser() {
+    const authenticatedUser: boolean = this.isAuthenticated()
+    const userInLocalStorage: string | null = localStorage.getItem('user')
+
+    if (authenticatedUser && userInLocalStorage) {
+      const user: UserDTO = JSON.parse(userInLocalStorage)
+      return user.usuarioAdmin === true
     }
 
-    storeUser(user: UserDTO) {
-        this.userData = user
-        this.user.next(this.userData)
-    }
+    return false
+  }
 
-    storeQuizType(quizType: TypeQuiz) {
-        this.quizType = quizType
-        this.myQuizType.next(this.quizType)
-    }
-
-    storeQuiz(quiz: any) {
-        this.quiz = quiz
-        this.myQuiz.next(this.quiz)
-    }
-
-    storeLoadingStatus(status: 'init' | 'success' | 'loading' | 'error'){
-      this.loadingStatus = status
-      this.loadingStatusBS.next(this.loadingStatus)
-    }
-
-    isAdminUser(){
-      return !!this.userData.usuarioAdmin
-    }
+  isAuthenticated() {
+    const userInLocalStorage: string | null = localStorage.getItem('user')
+    return !!userInLocalStorage;
+  }
 }

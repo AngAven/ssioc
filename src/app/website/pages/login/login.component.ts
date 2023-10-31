@@ -44,6 +44,10 @@ export class LoginComponent implements OnInit {
     this.storeService.loadingStatus$.subscribe(data => {
       this.loadingStatus = data
     })
+
+    if (this.storeService.isAuthenticated()){
+      this.router.navigateByUrl('dashboard')
+    }
   }
 
   loginUser() {

@@ -3,7 +3,7 @@ import {RouterModule, Routes, PreloadAllModules} from '@angular/router';
 import {NotFoundComponent} from "./website/pages/not-found/not-found.component";
 
 import {CustomPreloadService} from "./services/custom-preload.service";
-import {authGuard} from "./guards/auth.guard";
+import {authGuardAdmin} from "./guards/auth.guard";
 
 const routes: Routes = [
   {
@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'cms',
-    canMatch: [authGuard],
+    canMatch: [authGuardAdmin],
     loadChildren: () => import('./cms/cms.module').then(m => m.CmsModule)
   },
   {

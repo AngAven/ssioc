@@ -6,6 +6,7 @@ import {DashboardComponent} from "./pages/dashboard/dashboard.component";
 import {QuizComponent} from "../shared/components/quiz/quiz.component";
 import {SendMailComponent} from "../shared/components/send-mail/send-mail.component";
 import {LayoutComponent} from "./components/layout/layout.component";
+import {authGuardAdmin, authGuardUser} from "../guards/auth.guard";
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
       },
       {
         path: 'dashboard',
+        canMatch: [authGuardUser],
         component: DashboardComponent
       },
       {

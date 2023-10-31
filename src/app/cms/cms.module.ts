@@ -8,6 +8,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import {SharedModule} from "../shared/shared.module";
 import {ModalComponent} from "../modal/modal.component";
+import { CurrentFormsComponent } from './components/current-forms/current-forms.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import {ModalComponent} from "../modal/modal.component";
     GridComponent,
     LayoutComponent,
     NavbarComponent,
+    CurrentFormsComponent,
   ],
   imports: [
     CommonModule,

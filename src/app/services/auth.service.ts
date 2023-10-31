@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpErrorResponse, HttpStatusCode} from '@angular/common/http';
-import {throwError} from 'rxjs';
+import {pipe, throwError} from 'rxjs';
 import {map, catchError, tap} from "rxjs/operators";
 
 import {environment} from '../../environments/environment'
@@ -52,6 +52,14 @@ export class AuthService {
           }
           return user
         }),
+        map(data =>{
+          if(Object.keys(data).length > 0){
+            this.saveUserSession(data)
+
+            return data
+          }
+          return data
+        }),
       )
   }
 
@@ -78,10 +86,20 @@ export class AuthService {
             email: data.correo
           }
           this.storeService.storeUser(userData)
+          this.saveUserSession(userData)
         }
         return data
       })
     )
 
+  }
+
+  saveUserSession(user: UserDTO) {
+    localStorage.setItem('user', JSON.stringify(user))
+  }
+
+  endSession() {
+    this.storeService.storeUser({})
+    localStorage.removeItem('user')
   }
 }
