@@ -1,7 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import {environment} from "../../environments/environment";
 import {map} from "rxjs/operators";
+
+import {StoreService} from "./store.service";
+import {environment} from "../../environments/environment";
+import {FormsAvailable} from "../models/quiz.model";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +13,8 @@ export class QuizService {
   private apiUrl = `${environment.API_SSIOC}`;
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private storeService: StoreService
   ) {
   }
 
@@ -55,5 +59,10 @@ export class QuizService {
           }
         })
       )
+  }
+
+  getAvailableForms(){
+    const url = `${this.apiUrl}/views/obtieneFormatosVigentes`
+    return this.http.get<FormsAvailable>(url)
   }
 }
