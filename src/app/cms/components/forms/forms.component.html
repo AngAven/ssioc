@@ -1,0 +1,29 @@
+<div class="container mt-5 mb-3 container-desktop">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card p-3 mb-2">
+        <div class="d-flex justify-content-between">
+          <div class="d-flex flex-row align-items-center">
+            <div class="icon"><i class="bi bi-ui-radios"></i></div>
+            <div class="ms-2 c-details">
+              <h6 class="mb-0">{{unFormato.nombre_formato}}</h6>
+              <span class="card-date">{{unFormato.fecha_inicio}} / {{unFormato.fecha_final}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="mt-5">
+          <h3 class="heading">{{unFormato.nombre_periodo}}</h3>
+          <p class="fs-6">{{unFormato.formato_nombre}}</p>
+          <span class="badge rounded-pill text-bg-secondary">{{unFormato.rol}}</span>
+          <button type="button" class="btn btn-outline-primary">Detalles</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<swiper-container class="container container-mobile mt-5 mb-3" navigation="true">
+  <swiper-slide>Slide 1</swiper-slide>
+  <swiper-slide>Slide 2</swiper-slide>
+</swiper-container>

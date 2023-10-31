@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
-import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
-import { GridComponent } from './pages/grid/grid.component';
-import { LayoutComponent } from './components/layout/layout.component';
-import {SendMailComponent} from "../shared/components/send-mail/send-mail.component";
+import {AdminDashboardComponent} from './pages/admin-dashboard/admin-dashboard.component';
+import {LayoutComponent} from './components/layout/layout.component';
+import {FormsComponent} from "./components/forms/forms.component";
+import {QuizComponent} from "../shared/components/quiz/quiz.component";
+import {CarousellComponent} from "../shared/components/carousell/carousell.component";
 
 const routes: Routes = [
   {
@@ -21,12 +22,16 @@ const routes: Routes = [
         component: AdminDashboardComponent,
       },
       {
-        path: 'grid',
-        component: GridComponent,
+        path: 'forms',
+        component: FormsComponent,
       },
       {
-        path: 'sendmail',
-        component: SendMailComponent,
+        path: 'quiz',
+        component: QuizComponent,
+      },
+      {
+        path: 'swiper',
+        component: CarousellComponent,
       },
     ]
   }
@@ -36,4 +41,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CmsRoutingModule { }
+export class CmsRoutingModule {
+}
