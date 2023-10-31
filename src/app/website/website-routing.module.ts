@@ -6,7 +6,7 @@ import {DashboardComponent} from "./pages/dashboard/dashboard.component";
 import {QuizComponent} from "../shared/components/quiz/quiz.component";
 import {SendMailComponent} from "../shared/components/send-mail/send-mail.component";
 import {LayoutComponent} from "./components/layout/layout.component";
-import {authGuardAdmin, authGuardUser} from "../guards/auth.guard";
+import {authGuardUser} from "../guards/auth.guard";
 
 const routes: Routes = [
   {
@@ -44,8 +44,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
 export class WebsiteRoutingModule {
 }

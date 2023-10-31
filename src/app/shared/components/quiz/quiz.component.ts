@@ -26,7 +26,7 @@ export class QuizComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.storeService.myQuizType$.subscribe(data => {
+    this.storeService.quizType$.subscribe(data => {
       if (data.quiz_number && data.period) {
         this.quizNumber = data.quiz_number
         this.quizPeriod = data.period

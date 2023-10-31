@@ -17,11 +17,11 @@ import { CarousellComponent } from './components/carousell/carousell.component';
     SendMailComponent,
     CarousellComponent,
   ],
-  imports: [
-    CommonModule,
-    RouterLink,
-    FormsModule
-  ],
+    imports: [
+        CommonModule,
+        RouterLink,
+        FormsModule,
+    ],
   exports: [
     LoadingComponent,
     QuizComponent,
