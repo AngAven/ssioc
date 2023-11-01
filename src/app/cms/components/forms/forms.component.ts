@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { register } from 'swiper/element/bundle';
 register();

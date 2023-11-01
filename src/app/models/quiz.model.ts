@@ -1,12 +1,12 @@
-export interface Quiz {
+export interface QuizForEmailSend {
   id?: number
   titulo: string
   pregunta: string
   respuesta: string
-  pregunta_hija?: Quiz[]
+  pregunta_hija?: QuizForEmailSend[]
 }
 
-export interface QuizDTO extends Partial<Quiz> {
+export interface QuizDTOForEmailSend extends Partial<QuizForEmailSend> {
 }
 
 export interface QuizParams {
@@ -20,7 +20,7 @@ export interface FormEmailSend {
   formato_periodo: string
   usuario_nombre: string
   usuario_correo: string
-  cuestionario: QuizDTO []
+  cuestionario: QuizDTOForEmailSend []
 }
 
 export interface FormDTO extends Partial<FormEmailSend> {
@@ -58,4 +58,25 @@ export interface TypeQuiz {
 }
 
 export interface TypeQuizDTO extends Partial<TypeQuiz> {
+}
+
+export interface Question {
+  idPregunta: number
+  idSeccion: number
+  seccion: string
+  pregunta: string
+  obligatorio: boolean
+  elemento: string
+  tipo: string
+  visible: boolean
+  pregunta_hija: QuestionChild[]
+}
+
+export interface QuestionChild extends Omit<Question, 'pregunta_hija'>{
+
+}
+
+export interface Quiz {
+  formato_id: number
+  preguntas: Question[]
 }

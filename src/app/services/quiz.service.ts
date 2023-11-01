@@ -20,13 +20,13 @@ export class QuizService {
 
   getQuiz(quizName: string, quizPeriod?: string) {
     let url = `${this.apiUrl}/views/dist/assets/json/${quizName}.json`
-    if(quizPeriod !== ''){
+    if (quizPeriod !== '') {
       switch (quizPeriod) {
         case 'Enero':
-          url = url =`${this.apiUrl}/views/dist/assets/json/${quizName}a.json`
+          url = url = `${this.apiUrl}/views/dist/assets/json/${quizName}a.json`
           break
         case 'Marzo':
-          url = url =`${this.apiUrl}/views/dist/assets/json/${quizName}b.json`
+          url = url = `${this.apiUrl}/views/dist/assets/json/${quizName}b.json`
           break
         default:
           alert('no se encontro un formato')
@@ -36,16 +36,13 @@ export class QuizService {
   }
 
   getQuizType(username: string, roleId: string) {
-    const url = `${this.apiUrl}/views/consultaFormato?nombreUsuario=${username}&idRol=${roleId}`
-
-    let headers = new HttpHeaders()
-    headers = headers.set('Content-Type', 'application/x-www-form-urlencoded')
-
+    const url = `${this.apiUrl}/views/consultaFormato`
     let params = new HttpParams()
-    params.set('nombreUsuario', username)
-    params.set('idRol', roleId)
 
-    return this.http.get(url, {headers})
+    params = params.set('nombreUsuario', username)
+    params = params.set('idRol', roleId)
+
+    return this.http.get(url, {params})
       .pipe(
         map(request => {
           const requestArray: any = request
@@ -61,8 +58,18 @@ export class QuizService {
       )
   }
 
-  getAvailableForms(){
+  getAvailableForms() {
     const url = `${this.apiUrl}/views/obtieneFormatosVigentes`
     return this.http.get<FormsAvailable[]>(url)
+  }
+
+  getQuizByForm(idFormato: number, idPeriodo: number) {
+    const url = `${this.apiUrl}/views/obtienePreguntasxFormato`
+    let params = new HttpParams()
+
+    params = params.set('idFormato', idFormato)
+    params = params.set('idPeriodo', idPeriodo)
+
+    return this.http.get<FormsAvailable[]>(url, {params})
   }
 }

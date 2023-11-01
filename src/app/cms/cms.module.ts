@@ -9,6 +9,7 @@ import {LayoutComponent} from './components/layout/layout.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {ModalComponent} from "../modal/modal.component";
 import {FormsComponent} from './components/forms/forms.component';
+import { QuizByFormComponent } from './components/quiz-by-form/quiz-by-form.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {FormsComponent} from './components/forms/forms.component';
     LayoutComponent,
     NavbarComponent,
     FormsComponent,
+    QuizByFormComponent,
   ],
   exports: [
     FormsComponent
@@ -25,7 +27,7 @@ import {FormsComponent} from './components/forms/forms.component';
     CommonModule,
     CmsRoutingModule,
     SharedModule,
-    ModalComponent
+    ModalComponent,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

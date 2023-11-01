@@ -10,6 +10,15 @@
   & .icon{
     color: var(--bs-primary);
   }
+  & .card-iterable{
+    background-color: var(--bs-secondary);
+    border-radius: 5px;
+    text-align: center;
+    width: 1rem;
+    height: 1.5rem;
+    float: right;
+    color: var(--bs-white);
+  }
 }
 
 .c-details span {

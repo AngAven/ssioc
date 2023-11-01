@@ -6,6 +6,7 @@ import {LayoutComponent} from './components/layout/layout.component';
 import {FormsComponent} from "./components/forms/forms.component";
 import {QuizComponent} from "../shared/components/quiz/quiz.component";
 import {CarousellComponent} from "../shared/components/carousell/carousell.component";
+import {QuizByFormComponent} from "./components/quiz-by-form/quiz-by-form.component";
 
 const routes: Routes = [
   {
@@ -26,8 +27,8 @@ const routes: Routes = [
         component: FormsComponent,
       },
       {
-        path: 'quiz',
-        component: QuizComponent,
+        path: 'quiz-by-form',
+        component: QuizByFormComponent,
       },
       {
         path: 'swiper',
