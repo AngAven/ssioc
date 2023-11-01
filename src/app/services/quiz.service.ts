@@ -63,6 +63,6 @@ export class QuizService {
 
   getAvailableForms(){
     const url = `${this.apiUrl}/views/obtieneFormatosVigentes`
-    return this.http.get<FormsAvailable>(url)
+    return this.http.get<FormsAvailable[]>(url)
   }
 }

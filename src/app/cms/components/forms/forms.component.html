@@ -1,20 +1,20 @@
-<div class="container mt-5 mb-3 container-desktop">
+<div class="container mt-5 container-desktop">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-lg-6" *ngFor="let form of formsAvailable">
       <div class="card p-3 mb-2">
         <div class="d-flex justify-content-between">
           <div class="d-flex flex-row align-items-center">
             <div class="icon"><i class="bi bi-ui-radios"></i></div>
             <div class="ms-2 c-details">
-              <h6 class="mb-0">{{unFormato.nombre_formato}}</h6>
-              <span class="card-date">{{unFormato.fecha_inicio}} / {{unFormato.fecha_final}}</span>
+              <h6 class="mb-0">{{form.nombre_formato}}</h6>
+              <span class="card-date">{{form.fecha_inicio}} / {{form.fecha_final}}</span>
             </div>
           </div>
         </div>
         <div class="mt-5">
-          <h3 class="heading">{{unFormato.nombre_periodo}}</h3>
-          <p class="fs-6">{{unFormato.formato_nombre}}</p>
-          <span class="badge rounded-pill text-bg-secondary">{{unFormato.rol}}</span>
+          <h3 class="heading">{{form.nombre_periodo}}</h3>
+          <p class="fs-6">{{form.formato_nombre}}</p>
+          <span class="badge rounded-pill text-bg-secondary">{{form.rol}}</span>
           <button type="button" class="btn btn-outline-primary">Detalles</button>
         </div>
       </div>

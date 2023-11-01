@@ -13,8 +13,7 @@ import {FormsAvailableDTO} from "../../../models/quiz.model";
   styleUrls: ['./forms.component.scss']
 })
 export class FormsComponent implements OnInit {
-  formsAvailable: FormsAvailableDTO = {}
-  unFormato: any
+  formsAvailable: FormsAvailableDTO[] = []
 
   constructor(
     private quizService: QuizService,
@@ -25,10 +24,6 @@ export class FormsComponent implements OnInit {
     this.quizService.getAvailableForms().subscribe((data) => {
       this.storeService.storeFormsAvailable(data)
       this.formsAvailable = data
-      // @ts-ignore
-      console.log(data[0])
-      // @ts-ignore
-      this.unFormato = data[0]
     });
   }
 }

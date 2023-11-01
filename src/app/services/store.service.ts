@@ -25,8 +25,8 @@ export class StoreService {
   private loadingStatusBS = new BehaviorSubject<string>('init')
   loadingStatus$ = this.loadingStatusBS.asObservable()
 
-  private formsAvailable: FormsAvailableDTO = {}
-  private formsAvailableBS = new BehaviorSubject<any>({})
+  private formsAvailable: FormsAvailableDTO[] = []
+  private formsAvailableBS = new BehaviorSubject<any>([])
   forms$ = this.formsAvailableBS.asObservable()
 
   constructor() {
@@ -64,7 +64,7 @@ export class StoreService {
     this.loadingStatusBS.next(this.loadingStatus)
   }
 
-  storeFormsAvailable(formsAvailable: FormsAvailable) {
+  storeFormsAvailable(formsAvailable: FormsAvailable[]) {
     this.formsAvailable = formsAvailable
     this.formsAvailableBS.next(this.formsAvailable)
   }
