@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
+import {Router} from "@angular/router";
 
 import { register } from 'swiper/element/bundle';
 register();
@@ -17,6 +17,7 @@ export class FormsComponent implements OnInit {
   formsAvailable: FormsAvailableDTO[] = []
 
   constructor(
+    private router: Router,
     private quizService: QuizService,
     private storeService: StoreService
   ) {}
@@ -26,5 +27,10 @@ export class FormsComponent implements OnInit {
       this.storeService.storeFormsAvailable(data)
       this.formsAvailable = data
     });
+  }
+
+  goQuiz(idPeriodo: number | undefined, idFormato: number | undefined){
+    if (idPeriodo === undefined || idFormato === undefined) return
+    this.router.navigate(['/cms/quiz'], { queryParams: { idPeriodo: idPeriodo, idFormato: idFormato} })
   }
 }

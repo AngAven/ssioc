@@ -1,7 +1,7 @@
 .card {
   border: none;
   border-radius: 10px;
-  & button {
+  & .card-button-group {
     float: right;
   }
   & button:hover {
@@ -18,6 +18,9 @@
     height: 1.5rem;
     float: right;
     color: var(--bs-white);
+  }
+  & .card-role{
+    color: var(--bs-white) !important;
   }
 }
 

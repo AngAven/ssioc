@@ -1,1 +1,28 @@
-<p>quiz-by-form works!</p>
+<div class="container pt-3">
+  <table class="table" *ngIf="questions.length > 0 else elseBlock ">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Pregunta</th>
+      <th scope="col">Sección</th>
+      <th scope="col">Obligatoria</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let question of questions">
+      <th scope="row">{{question.idPregunta}}</th>
+      <td>{{question.pregunta}}</td>
+      <td>{{question.seccion}}</td>
+      <td>{{question.obligatorio ? 'Sí' : 'No'}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <ng-template #elseBlock>
+    <div class="alert alert-danger" role="alert">
+      No hay preguntas registradas para este formato
+    </div>
+
+    <button type="button" class="btn btn-outline-primary" (click)="goBack()">Back</button>
+  </ng-template>
+</div>
