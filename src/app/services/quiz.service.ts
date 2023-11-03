@@ -4,7 +4,7 @@ import {map} from "rxjs/operators";
 
 import {StoreService} from "./store.service";
 import {environment} from "../../environments/environment";
-import {FormsAvailable} from "../models/quiz.model";
+import {QuizDTO, FormsAvailable} from "../models/quiz.model";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class QuizService {
   ) {
   }
 
-  getQuiz(quizName: string, quizPeriod?: string) {
+  getQuizDelete(quizName: string, quizPeriod?: string) {
     let url = `${this.apiUrl}/views/dist/assets/json/${quizName}.json`
     if (quizPeriod !== '') {
       switch (quizPeriod) {
@@ -70,6 +70,6 @@ export class QuizService {
     params = params.set('idFormato', idFormato)
     params = params.set('idPeriodo', idPeriodo)
 
-    return this.http.get<FormsAvailable[]>(url, {params})
+    return this.http.get<QuizDTO>(url, {params})
   }
 }

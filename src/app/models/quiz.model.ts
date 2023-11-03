@@ -80,3 +80,6 @@ export interface Quiz {
   formato_id: number
   preguntas: Question[]
 }
+
+export interface QuizDTO extends Partial<Quiz> {
+}

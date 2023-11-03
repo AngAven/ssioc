@@ -37,7 +37,7 @@ export class QuizComponent implements OnInit {
       this.userData = userDTO
     })
 
-    this.quizService.getQuiz(`formato${this.quizNumber}`, this.quizPeriod)
+    this.quizService.getQuizDelete(`formato${this.quizNumber}`, this.quizPeriod)
       .subscribe(data => {
         this.quizResponse = data
 

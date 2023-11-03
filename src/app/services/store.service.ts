@@ -2,8 +2,7 @@ import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs'
 
 import {UserDTO} from "../models/auth.model";
-import {FormsAvailableDTO, FormsAvailable, TypeQuiz, TypeQuizDTO, Quiz} from "../models/quiz.model";
-import {QuizService} from "./quiz.service";
+import {FormsAvailableDTO, FormsAvailable, TypeQuiz, TypeQuizDTO, QuizDTO} from "../models/quiz.model";
 
 @Injectable({
   providedIn: 'root'
@@ -30,8 +29,8 @@ export class StoreService {
   private formsAvailableBS = new BehaviorSubject<any>([])
   forms$ = this.formsAvailableBS.asObservable()
 
-  private quiz: Quiz[] = []
-  private quizBS = new BehaviorSubject<any>([])
+  private quiz: QuizDTO = {}
+  private quizBS = new BehaviorSubject<any>({})
   quiz$ = this.quizBS.asObservable()
 
   constructor() {
@@ -74,7 +73,7 @@ export class StoreService {
     this.formsAvailableBS.next(this.formsAvailable)
   }
 
-  storeQuizByForm(quizByForm: Quiz[]){
+  storeQuizByForm(quizByForm: QuizDTO){
     this.quiz = quizByForm
     this.quizBS.next(this.quiz)
   }
