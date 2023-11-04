@@ -6,14 +6,72 @@
       <th scope="col">Pregunta</th>
       <th scope="col">Sección</th>
       <th scope="col">Obligatoria</th>
+      <th scope="col">Elemento</th>
+      <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let question of questions">
-      <th scope="row">{{question.idPregunta}}</th>
-      <td>{{question.pregunta}}</td>
-      <td>{{question.seccion}}</td>
-      <td>{{question.obligatorio ? 'Sí' : 'No'}}</td>
+      <ng-container *ngIf="questionID === question.idPregunta else elseQuestionBlock">
+        <th scope="row">{{questionUpdated.idPregunta}}</th>
+        <td>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text"
+                  id="inputGroup-sizing-sm-{{questionUpdated.idPregunta}}">{{question.pregunta}}</span>
+            <input type="text" class="form-control" aria-label="Sizing example input"
+                   aria-describedby="inputGroup-sizing-sm" [(ngModel)]="questionUpdated.pregunta">
+          </div>
+        </td>
+        <td>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text"
+                  id="inputGroup-sizing-sm-{{questionUpdated.idPregunta}}">{{question.seccion}}</span>
+            <input type="text" class="form-control" aria-label="Sizing example input"
+                   aria-describedby="inputGroup-sizing-sm" [(ngModel)]="questionUpdated.seccion">
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+                   [(ngModel)]="questionUpdated.obligatorio">
+            <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+          </div>
+        </td>
+        <td>
+          {{questionUpdated.elemento}}
+        </td>
+        <td>
+          <div class="btn-group-sm" role="group">
+            <button type="button" class="btn btn-outline-success" (click)="updateQuestion()">Enviar
+            </button>
+            <button type="button" class="btn btn-outline-danger" (click)="resetChanges()">Cancelar</button>
+          </div>
+        </td>
+      </ng-container>
+      <ng-template #elseQuestionBlock>
+        <th scope="row">{{question.idPregunta}}</th>
+        <td>{{question.pregunta}}</td>
+        <td>{{question.seccion}}</td>
+        <td>
+          <div class="form-check form-switch question-td-center">
+            <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked-2" disabled
+                   [(ngModel)]="question.obligatorio">
+          </div>
+        </td>
+        <td>{{question.elemento}}</td>
+        <td>
+          <div class="btn-group-sm" role="group">
+            <button type="button" class="btn btn-outline-primary"
+                    [ngClass]="{'disabled': (questionID > 0 && questionID != question.idPregunta)}"
+                    (click)="enableUpdate(question.idPregunta)">Editar
+            </button>
+            <button type="button" class="btn btn-outline-danger"
+                    [ngClass]="{'disabled': (questionID > 0 && questionID != question.idPregunta)}">Eliminar
+            </button>
+          </div>
+        </td>
+      </ng-template>
     </tr>
     </tbody>
   </table>
@@ -21,6 +79,7 @@
   <ng-template #elseBlock>
     <div class="alert alert-danger" role="alert">
       No hay preguntas registradas para este formato
+      <button type="button" class="btn btn-outline-secondary">Agregar pregunta</button>
     </div>
 
     <button type="button" class="btn btn-outline-primary" (click)="goBack()">Back</button>

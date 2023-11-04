@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'cms',
-    // canMatch: [authGuardAdmin],
+    canMatch: [authGuardAdmin],
     loadChildren: () => import('./cms/cms.module').then(m => m.CmsModule)
   },
   {

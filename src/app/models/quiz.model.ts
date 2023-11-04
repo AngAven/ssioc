@@ -71,6 +71,8 @@ export interface Question {
   visible: boolean
   pregunta_hija: QuestionChild[]
 }
+export interface QuestionDTO extends Partial<Question> {
+}
 
 export interface QuestionChild extends Omit<Question, 'pregunta_hija'>{
 

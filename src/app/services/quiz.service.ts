@@ -4,7 +4,7 @@ import {map} from "rxjs/operators";
 
 import {StoreService} from "./store.service";
 import {environment} from "../../environments/environment";
-import {QuizDTO, FormsAvailable} from "../models/quiz.model";
+import {QuizDTO, FormsAvailable, QuestionDTO} from "../models/quiz.model";
 
 @Injectable({
   providedIn: 'root'
@@ -71,5 +71,10 @@ export class QuizService {
     params = params.set('idPeriodo', idPeriodo)
 
     return this.http.get<QuizDTO>(url, {params})
+  }
+
+  updateQuestion(questionUpdated: QuestionDTO){
+    const url = `${this.apiUrl}/views/actualizaPreguntasxFormato`
+    return this.http.post(url, questionUpdated)
   }
 }
