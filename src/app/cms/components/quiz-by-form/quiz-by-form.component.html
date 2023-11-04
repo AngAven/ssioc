@@ -1,4 +1,4 @@
-<div class="container pt-3">
+<div class="pt-3" [ngClass]="tableContainerType">
   <table class="table" *ngIf="questions.length > 0 else elseBlock ">
     <thead>
     <tr>
@@ -7,6 +7,8 @@
       <th scope="col">Sección</th>
       <th scope="col">Obligatoria</th>
       <th scope="col">Elemento</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Visible</th>
       <th scope="col"></th>
     </tr>
     </thead>
@@ -15,19 +17,23 @@
       <ng-container *ngIf="questionID === question.idPregunta else elseQuestionBlock">
         <th scope="row">{{questionUpdated.idPregunta}}</th>
         <td>
-          <div class="input-group input-group-sm mb-3">
-            <span class="input-group-text"
-                  id="inputGroup-sizing-sm-{{questionUpdated.idPregunta}}">{{question.pregunta}}</span>
-            <input type="text" class="form-control" aria-label="Sizing example input"
-                   aria-describedby="inputGroup-sizing-sm" [(ngModel)]="questionUpdated.pregunta">
+          <p>{{question.pregunta}}</p>
+          <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here"
+                      id="floatingTextarea-{{question.idPregunta}}"
+                      style="height: 100px" [(ngModel)]="questionUpdated.pregunta"></textarea>
+            <label for="floatingTextarea-{{question.idPregunta}}">Editar pregunta</label>
           </div>
         </td>
         <td>
-          <div class="input-group input-group-sm mb-3">
-            <span class="input-group-text"
-                  id="inputGroup-sizing-sm-{{questionUpdated.idPregunta}}">{{question.seccion}}</span>
-            <input type="text" class="form-control" aria-label="Sizing example input"
-                   aria-describedby="inputGroup-sizing-sm" [(ngModel)]="questionUpdated.seccion">
+          <p>{{question.seccion}}</p>
+          <div class="form-floating">
+            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+              <option value="1">GENERAL</option>
+              <option value="2">GENERAL 2 </option>
+              <option value="3">GENERAL 3</option>
+            </select>
+            <label for="floatingSelect">Editar Sección</label>
           </div>
         </td>
         <td>
@@ -38,7 +44,31 @@
           </div>
         </td>
         <td>
-          {{questionUpdated.elemento}}
+          <p>{{question.elemento}}</p>
+          <div class="form-floating">
+            <select class="form-select" id="floatingSelect2" aria-label="Floating label select example">
+              <option value="1">input</option>
+              <option value="2">textarea</option>
+            </select>
+            <label for="floatingSelect2">Editar Sección</label>
+          </div>
+        </td>
+        <td>
+          <p>{{question.tipo}}</p>
+          <div class="form-floating">
+            <select class="form-select" id="floatingSelect3" aria-label="Floating label select example">
+              <option value="1">radio</option>
+              <option value="2">checkbox</option>
+            </select>
+            <label for="floatingSelect3">Editar Sección</label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked-4"
+                   [(ngModel)]="questionUpdated.visible">
+            <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+          </div>
         </td>
         <td>
           <div class="btn-group-sm" role="group">
@@ -48,9 +78,15 @@
           </div>
         </td>
       </ng-container>
+
       <ng-template #elseQuestionBlock>
         <th scope="row">{{question.idPregunta}}</th>
-        <td>{{question.pregunta}}</td>
+        <td>
+          <span>{{question.pregunta}}</span>
+          <span class="question-table-children" *ngIf="question.pregunta_hija.length > 0">
+            <i class="bi bi-arrow-bar-up"></i>
+          </span>
+        </td>
         <td>{{question.seccion}}</td>
         <td>
           <div class="form-check form-switch question-td-center">
@@ -60,6 +96,14 @@
           </div>
         </td>
         <td>{{question.elemento}}</td>
+        <td>{{question.tipo}}</td>
+        <td>
+          <div class="form-check form-switch question-td-center">
+            <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked-3" disabled
+                   [(ngModel)]="question.visible">
+          </div>
+        </td>
         <td>
           <div class="btn-group-sm" role="group">
             <button type="button" class="btn btn-outline-primary"

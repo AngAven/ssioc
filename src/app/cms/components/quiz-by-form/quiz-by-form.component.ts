@@ -18,7 +18,7 @@ export class QuizByFormComponent implements OnInit {
   idPeriodo: number = 0
   questionID: number = 0
   questionUpdated: QuestionDTO = {}
-  element: HTMLElement | null = null
+  tableContainerType: 'container' | 'container-fluid' = 'container'
 
   constructor(
     private route: ActivatedRoute,
@@ -53,6 +53,7 @@ export class QuizByFormComponent implements OnInit {
   }
 
   enableUpdate(questionID: number) {
+    this.tableContainerType = 'container-fluid'
     const questionForUpdate = this.questions.find(question => question.idPregunta === questionID)
     this.questionID = questionID
     this.questionUpdated = {
@@ -70,6 +71,7 @@ export class QuizByFormComponent implements OnInit {
   }
 
   resetChanges() {
+    this.tableContainerType = 'container'
     this.questionID = 0
     this.questionUpdated = {}
     this.ngOnInit()

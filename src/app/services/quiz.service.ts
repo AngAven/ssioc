@@ -14,9 +14,7 @@ export class QuizService {
 
   constructor(
     private http: HttpClient,
-    private storeService: StoreService
-  ) {
-  }
+  ) {}
 
   getQuizDelete(quizName: string, quizPeriod?: string) {
     let url = `${this.apiUrl}/views/dist/assets/json/${quizName}.json`
@@ -65,6 +63,8 @@ export class QuizService {
 
   getQuizByForm(idFormato: number, idPeriodo: number) {
     const url = `${this.apiUrl}/views/obtienePreguntasxFormato`
+    // const url = `https://my.api.mockaroo.com/admin_getAll_preguntas.json?key=d48cf750`
+
     let params = new HttpParams()
 
     params = params.set('idFormato', idFormato)
