@@ -14,7 +14,7 @@ import {FormsAvailableDTO} from "../../../models/quiz.model";
   styleUrls: ['./forms.component.scss']
 })
 export class FormsComponent implements OnInit {
-  formsAvailable: FormsAvailableDTO[] = []
+  availableForms: FormsAvailableDTO[] = []
 
   constructor(
     private router: Router,
@@ -25,7 +25,7 @@ export class FormsComponent implements OnInit {
   ngOnInit() {
     this.quizService.getAvailableForms().subscribe((data) => {
       this.storeService.storeFormsAvailable(data)
-      this.formsAvailable = data
+      this.availableForms = data
     });
   }
 

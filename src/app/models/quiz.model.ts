@@ -68,14 +68,24 @@ export interface Question {
   obligatorio: boolean
   elemento: string
   tipo: string
-  visible: boolean
+  esVisible: boolean
+  orden?: number
   pregunta_hija: QuestionChild[]
 }
 export interface QuestionDTO extends Partial<Question> {
 }
 
-export interface QuestionChild extends Omit<Question, 'pregunta_hija'>{
+export interface QuestionToSave {
+  formato_id: number
+  periodo_id: number
+  preguntas: QuestionDTO[]
+}
 
+export interface QuestionToSaveDTO extends Partial<QuestionToSave> {
+}
+
+export interface QuestionChild extends Omit<Question, 'pregunta_hija'>{
+  idPreguntaPadre: number
 }
 
 export interface Quiz {

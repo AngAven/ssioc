@@ -1,0 +1,82 @@
+<div class="container-sm pt-3">
+  <h2>Agregar pregunta</h2>
+  <form class="row g-3 needs-validation" novalidate>
+    <div class="col-6 justify-content-start">
+      <select class="form-select" id="select-period" required>
+        <option selected name="periodo">Periodo</option>
+        <ng-container *ngFor="let availableForm of availableForms">
+          <option
+            [value]="availableForm.id"
+          >{{availableForm.nombre_periodo}}</option>
+        </ng-container>
+      </select>
+      <br>
+      <select class="form-select" id="select-form" required>
+        <option selected>Formato</option>
+        <ng-container *ngFor="let availableForm of availableForms">
+          <option
+            [value]="availableForm.formato_id"
+          >{{availableForm.formato_nombre}}</option>
+        </ng-container>
+      </select>
+      <br>
+      <select class="form-select" id="select-section">
+        <option selected>Sección</option>
+        <ng-container>
+          <option value="1">GENERAL 1</option>
+          <option value="2">GENERAL 2</option>
+          <option value="3">GENERAL 3</option>
+          <option value="4">GENERAL 4</option>
+          <option value="5">GENERAL 5</option>
+        </ng-container>
+      </select>
+      <br>
+      <div class="input-group">
+        <span class="input-group-text">Pregunta</span>
+        <textarea class="form-control" aria-label="With textarea" id="question"></textarea>
+      </div>
+      <br>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="question-required" checked>
+        <label class="form-check-label" for="question-required">
+          Obligatorio
+        </label>
+      </div>
+      <br>
+      <div class="form-floating">
+        <select class="form-select" id="question-element" aria-label="Floating label select example">
+          <option value="input">Simple (input)</option>
+          <option value="textarea">Compuesta (textarea)</option>
+        </select>
+        <label for="question-element">Tipo de pregunta</label>
+      </div>
+      <br>
+      <div class="form-floating">
+        <select class="form-select" id="question-element-type" aria-label="Floating label select example">
+          <option value="radio">Radio (input)</option>
+          <option value="checkbox">Checkbox (input)</option>
+        </select>
+        <label for="question-element-type">Solo para pregunta simple</label>
+      </div>
+      <br>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="question-visible" checked>
+        <label class="form-check-label" for="question-visible">
+          Visible
+        </label>
+      </div>
+      <br>
+<!--      <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0"-->
+<!--           aria-valuemax="100">-->
+<!--        <div class="progress-bar" style="width: 0%"></div>-->
+<!--      </div>-->
+    </div>
+    <br>
+    <div class="col-12">
+      <button type="button" class="btn btn-outline-primary" (click)="goBack()">Regresar</button>
+      <button class="btn btn-primary" type="button" (click)="onFormSubmit()">Agregar</button>
+    </div>
+  </form>
+
+
+</div>

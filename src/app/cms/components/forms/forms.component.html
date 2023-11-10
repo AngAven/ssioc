@@ -1,6 +1,6 @@
 <div class="container mt-5 container-desktop">
   <div class="row">
-    <div class="col-lg-6" *ngFor="let form of formsAvailable">
+    <div class="col-lg-6" *ngFor="let form of availableForms">
       <div class="card p-3 mb-2">
         <div class="d-flex justify-content-between card-header-format">
           <div class="d-flex flex-row align-items-center">
@@ -12,7 +12,6 @@
           </div>
           <div class="card-iterable">{{form.iterable}}</div>
         </div>
-        <app-popover-triggers></app-popover-triggers>
         <div class="mt-5">
           <h3 class="heading">{{form.nombre_periodo}}</h3>
           <p class="fs-6">{{form.formato_nombre}}</p>
@@ -20,7 +19,8 @@
 
           <div class="btn-group card-button-group" role="group" aria-label="outlined">
             <button type="button" class="btn btn-outline-primary" (click)="goQuiz(form.id, form.formato_id)">Preguntas</button>
-            <button type="button" class="btn btn-outline-primary disabled">Detalles</button>
+            <button type="button" class="btn btn-outline-primary" routerLink="/cms/addQuestion">Nueva pregunta</button>
+            <button type="button" class="btn btn-outline-primary disabled">Editar</button>
           </div>
         </div>
       </div>

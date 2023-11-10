@@ -11,6 +11,7 @@ import {ModalComponent} from "../modal/modal.component";
 import {FormsComponent} from './components/forms/forms.component';
 import { QuizByFormComponent } from './components/quiz-by-form/quiz-by-form.component';
 import {FormsModule} from "@angular/forms";
+import { AddQuestionComponent } from './components/add-question/add-question.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {FormsModule} from "@angular/forms";
     NavbarComponent,
     FormsComponent,
     QuizByFormComponent,
+    AddQuestionComponent,
   ],
   exports: [
     FormsComponent

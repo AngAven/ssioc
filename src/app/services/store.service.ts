@@ -25,9 +25,9 @@ export class StoreService {
   private loadingStatusBS = new BehaviorSubject<string>('init')
   loadingStatus$ = this.loadingStatusBS.asObservable()
 
-  private formsAvailable: FormsAvailableDTO[] = []
-  private formsAvailableBS = new BehaviorSubject<any>([])
-  forms$ = this.formsAvailableBS.asObservable()
+  private availableForms: FormsAvailableDTO[] = []
+  private availableFormsBS = new BehaviorSubject<any>([])
+  availableForms$ = this.availableFormsBS.asObservable()
 
   private quiz: QuizDTO = {}
   private quizBS = new BehaviorSubject<any>({})
@@ -68,9 +68,9 @@ export class StoreService {
     this.loadingStatusBS.next(this.loadingStatus)
   }
 
-  storeFormsAvailable(formsAvailable: FormsAvailable[]) {
-    this.formsAvailable = formsAvailable
-    this.formsAvailableBS.next(this.formsAvailable)
+  storeFormsAvailable(availableForms: FormsAvailable[]) {
+    this.availableForms = availableForms
+    this.availableFormsBS.next(this.availableForms)
   }
 
   storeQuizByForm(quizByForm: QuizDTO){
