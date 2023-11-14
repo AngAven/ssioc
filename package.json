@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build-staging-enviroment":     "ng build --configuration production --output-path=/Users/angaven/code/ine/innovacion/jboss_wildfly-run-enviroment/ssioc-backend/SSIOC-presentacion/src/main/webapp/views/dist --base-href /SSIOC-presentacion-2.0.0/views/dist/",
-    "build-localServer-enviroment": "ng build --configuration localServer --output-path=/Users/angaven/code/ine/innovacion/jboss_wildfly-run-enviroment/ssioc-backend/SSIOC-presentacion/src/main/webapp/views/dist --base-href /SSIOC-presentacion-2.0.0/views/dist/",
+    "build-staging-enviroment":     "ng build --configuration production --output-path ../ssioc-backend-1.0.0/SSIOC-presentacion/src/main/webapp/views/dist --base-href /SSIOC-presentacion-2.0.0/views/dist/",
+    "build-localServer-enviroment": "ng build --configuration localServer --output-path ../ssioc-backend-1.0.0/SSIOC-presentacion/src/main/webapp/views/dist --base-href /SSIOC-presentacion-2.0.0/views/dist/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
