@@ -33,8 +33,10 @@ export class QuizByFormComponent implements OnInit {
       this.idFormato = params['idFormato']
     })
 
-    this.quizService.getQuizByForm(this.idFormato, this.idPeriodo).subscribe(data => {
+    Promise.resolve().then(() => {
       this.storeService.storeLoadingStatus('loading')
+    })
+    this.quizService.getQuizByForm(this.idFormato, this.idPeriodo).subscribe(data => {
       this.storeService.storeQuizByForm(data)
       this.questions = data?.preguntas ? data.preguntas : []
       this.quiz = data
@@ -45,7 +47,6 @@ export class QuizByFormComponent implements OnInit {
       this.quiz = data
       this.questions = data?.preguntas ? data.preguntas : []
     })
-
   }
 
   goBack() {
