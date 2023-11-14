@@ -95,3 +95,30 @@ export interface Quiz {
 
 export interface QuizDTO extends Partial<Quiz> {
 }
+
+export interface Section{
+  idSeccion: number
+  seccion: string
+  orden: number
+  esVisible: boolean
+}
+
+export interface SectionDTO extends Partial<Section> {
+}
+
+export interface ElementTag {
+  idElemento: number
+  elemento: string
+}
+
+export interface ElementTagDTO extends Partial<ElementTag> {
+}
+
+export interface ElementTagTypes {
+  idObjeto: number
+  objeto: string | null
+  idElemento: number
+}
+
+export interface ElementTagTypesDTO extends Partial<ElementTagTypes> {
+}

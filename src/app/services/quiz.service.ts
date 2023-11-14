@@ -1,10 +1,19 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {map} from "rxjs/operators";
 
 import {StoreService} from "./store.service";
+
 import {environment} from "../../environments/environment";
-import {QuizDTO, FormsAvailable, QuestionDTO, QuestionToSaveDTO} from "../models/quiz.model";
+import {
+  QuizDTO,
+  FormsAvailable,
+  QuestionDTO,
+  QuestionToSaveDTO,
+  Section,
+  ElementTag,
+  ElementTagTypes
+} from "../models/quiz.model";
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +23,24 @@ export class QuizService {
 
   constructor(
     private http: HttpClient,
-  ) {}
+    private storeService: StoreService
+  ) {
+  }
+
+  getSections(idPeriodo: number, idFormato: number) {
+    const url = `${this.apiUrl}/views/obtenerSecciones?idPeriodo=${idPeriodo}&idFormato=${idFormato}`
+    return this.http.get<Section[]>(url)
+  }
+
+  getElementsTag() {
+    const url = `${this.apiUrl}/views/obtenerElementos`
+    return this.http.get<ElementTag[]>(url)
+  }
+
+  getElementsTagTypes(elementTagId: number) {
+    const url = `${this.apiUrl}/views/obtenerObjetos/?idElemento=${elementTagId}`
+    return this.http.get<ElementTagTypes[]>(url)
+  }
 
   getQuizDelete(quizName: string, quizPeriod?: string) {
     let url = `${this.apiUrl}/views/dist/assets/json/${quizName}.json`
@@ -63,22 +89,20 @@ export class QuizService {
 
   getQuizByForm(idFormato: number, idPeriodo: number) {
     const url = `${this.apiUrl}/views/obtienePreguntasxFormato`
-    // const url = `https://my.api.mockaroo.com/admin_getAll_preguntas.json?key=d48cf750`
 
     let params = new HttpParams()
-
     params = params.set('idFormato', idFormato)
     params = params.set('idPeriodo', idPeriodo)
 
     return this.http.get<QuizDTO>(url, {params})
   }
 
-  updateQuestion(questionUpdated: QuestionDTO){
+  updateQuestion(questionUpdated: QuestionDTO) {
     const url = `${this.apiUrl}/views/actualizaPreguntasxFormato`
     return this.http.post(url, questionUpdated)
   }
 
-  addQuestion(question: QuestionToSaveDTO){
+  addQuestion(question: QuestionToSaveDTO) {
     const url = `${this.apiUrl}/views/registraPreguntasxFormato`
     return this.http.post(url, question)
   }
