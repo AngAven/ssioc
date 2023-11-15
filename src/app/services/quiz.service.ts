@@ -38,7 +38,7 @@ export class QuizService {
   }
 
   getElementsTagTypes(elementTagId: number) {
-    const url = `${this.apiUrl}/views/obtenerObjetos/?idElemento=${elementTagId}`
+    const url = `${this.apiUrl}/views/obtenerTipoElementos/?idElemento=${elementTagId}`
     return this.http.get<ElementTagTypes[]>(url)
   }
 
